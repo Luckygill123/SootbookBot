@@ -39,7 +39,9 @@ return(
     <React.Fragment>
       <div className='signIn_wrapper'>
            <div className='header'>
-            <div className='left_logoBlock'>
+            <div className='left_logoBlock' onClick={() => {
+                        navigate("/")
+                    }}>
                 <img src={FogoLogo} alt="fogo_logo"></img>
             </div>
             <div className='right_action'>

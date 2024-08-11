@@ -1,13 +1,13 @@
-$white:#FFF;
+$white: #FFF;
 $black: #000;
 $text: #1F2937;
-$buttonColor:#00A9BB;
+$buttonColor: #00A9BB;
 
 $font-monsterat : 'Montserrat';
 
 
 // Flexbox display
-@mixin flexbox{
+@mixin flexbox {
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -16,7 +16,7 @@ $font-monsterat : 'Montserrat';
 }
 
 // Inline flex display
-@mixin inline-flex{
+@mixin inline-flex {
     display: -webkit-inline-box;
     display: -moz-inline-box;
     display: -webkit-inline-flex;
@@ -25,12 +25,14 @@ $font-monsterat : 'Montserrat';
 }
 
 
-.signUp_wrapper{
+.signUp_wrapper {
     box-sizing: border-box;
-    *{
+
+    * {
         box-sizing: border-box;
     }
-    .header{
+
+    .header {
         padding: 0px 60px;
         height: 72px;
         background-color: $white;
@@ -43,56 +45,72 @@ $font-monsterat : 'Montserrat';
         left: 0;
         top: 0;
         width: 100%;
-        .right_action{
-            .dont_account{
+
+        .right_action {
+            .closeBtn{
+                display: none;
+            }
+            .dont_account {
                 display: inline-block;
                 margin-right: 36px;
                 font-size: 16px;
                 font-family: $font-monsterat;
                 font-style: normal;
                 font-weight: 400;
-                line-height: 24px; /* 150% */
+                line-height: 24px;
+                /* 150% */
                 letter-spacing: 0.08px;
                 color: $text;
             }
-            .signup_btn{
+
+            .signup_btn {
                 height: 48px;
                 background-color: $buttonColor;
                 border-radius: 8px;
                 font-size: 14px;
                 font-style: normal;
                 font-weight: 600;
-                line-height: 20px; /* 142.857% */
+                line-height: 20px;
+                /* 142.857% */
                 letter-spacing: 0.07px;
                 font-family: $font-monsterat;
                 color: $white;
                 border: none;
                 cursor: pointer;
                 padding: 0 15px;
-                &:focus:not(:focus-visible){
+
+                &:focus:not(:focus-visible) {
                     outline: none;
                 }
             }
         }
+        .burgerMenuBtn{
+            display: none;
+        }
     }
-    .main_container{
+
+    .main_container {
         position: relative;
         @include flexbox();
         align-items: center;
         justify-content: center;
         padding: 136px 0;
-        .content_wrapper{
-            .stepper_container{
+
+        .content_wrapper {
+            .stepper_container {
                 margin-bottom: 40px;
-                ul{
+
+                ul {
                     @include flexbox();
                     margin: 0;
                     padding: 0;
-                    li{
+
+                    li {
                         list-style: none;
                         width: 20%;
                         position: relative;
-                        .index{
+
+                        .index {
                             color: #1F2937;
                             width: 28px;
                             height: 28px;
@@ -107,54 +125,64 @@ $font-monsterat : 'Montserrat';
                             font-size: 12px;
                             font-style: normal;
                             font-weight: 500;
-                            line-height: 16px; /* 133.333% */
+                            line-height: 16px;
+                            /* 133.333% */
                             letter-spacing: 0.06px;
                             font-family: $font-monsterat;
                             margin-bottom: 8px;
                         }
-                        .text{
+
+                        .text {
                             display: block;
                             font-size: 16px;
                             font-style: normal;
                             font-weight: 500;
-                            line-height: 24px; /* 150% */
+                            line-height: 24px;
+                            /* 150% */
                             letter-spacing: 0.08px;
                             text-align: center;
                             color: #6B7280;
                             font-family: $font-monsterat;
+                            white-space: nowrap;
                         }
-                        &::after{
+
+                        &::after {
                             content: '';
                             display: inline-block;
                             position: absolute;
                             left: calc(50% + 20px);
-                            top:14px;
+                            top: 14px;
                             transform: none;
                             height: 1px;
                             background-color: #E5E7EB;
                             width: 70%;
                         }
-                        &:last-child{
-                            &::after{
+
+                        &:last-child {
+                            &::after {
                                 display: none;
                             }
                         }
-                        &.active{
-                            .index{
+
+                        &.active {
+                            .index {
                                 background-color: #00A9BB;
                                 color: $white;
                             }
-                            .text{
+
+                            .text {
                                 color: #00A9BB;
                             }
-                            &::after{
+
+                            &::after {
                                 background-color: #00A9BB;
                             }
                         }
                     }
                 }
             }
-            &.create_account{
+
+            &.create_account {
                 padding: 64px;
                 max-width: 802px;
                 width: 100%;
@@ -162,83 +190,95 @@ $font-monsterat : 'Montserrat';
                 margin-right: auto;
                 background-color: $white;
                 border-radius: 12px;
-                border: 1px solid  #E9E9E9;
+                border: 1px solid #E9E9E9;
                 box-shadow: 0px 10px 70px 0px rgba(0, 0, 0, 0.08);
-                .creatAccountForm_wrapper{
-                    .form_container{
+
+                .creatAccountForm_wrapper {
+                    .form_container {
                         max-width: 403px;
                         width: 100%;
                         margin-left: auto;
                         margin-right: auto;
-                        .page_title{
+
+                        .page_title {
                             font-size: 24px;
                             font-style: normal;
                             font-weight: 600;
-                            line-height: 32px; /* 133.333% */
+                            line-height: 32px;
+                            /* 133.333% */
                             letter-spacing: 0.12px;
                             font-family: $font-monsterat;
                             color: $text;
                             margin-top: 0;
                             margin-bottom: 36px;
                         }
-                        .signup_google{
-                           .googleButton{
-                            border: none;
-                            cursor: pointer;
-                            width: 100%;
-                            @include flexbox();
-                            align-items: center;
-                            justify-content: center;
-                            border-radius: 8px;
-                            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, -7px -7px 7px 0px #FFF inset;
-                            border: 1px solid #E5E7EB;
-                            height: 48px;
-                            // background-color: $white;
-                            background-color: #f2f5fa;
-                            .text{
-                                display: inline-block;
-                                font-size: 14px;
-                                font-style: normal;
-                                font-weight: 600;
-                                line-height: 20px; /* 142.857% */
-                                letter-spacing: 0.07px;
-                                color: $text;
-                            }
-                            .icon{
-                                width: 18px;
-                                height: 18px;
-                                display: inline-block;
-                                margin-right: 10px;
-                                img{
-                                    max-width: 100%;
-                                    height: auto;
+
+                        .signup_google {
+                            .googleButton {
+                                border: none;
+                                cursor: pointer;
+                                width: 100%;
+                                @include flexbox();
+                                align-items: center;
+                                justify-content: center;
+                                border-radius: 8px;
+                                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, -7px -7px 7px 0px #FFF inset;
+                                border: 1px solid #E5E7EB;
+                                height: 48px;
+                                // background-color: $white;
+                                background-color: #f2f5fa;
+
+                                .text {
+                                    display: inline-block;
+                                    font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    line-height: 20px;
+                                    /* 142.857% */
+                                    letter-spacing: 0.07px;
+                                    color: $text;
+                                }
+
+                                .icon {
+                                    width: 18px;
+                                    height: 18px;
+                                    display: inline-block;
+                                    margin-right: 10px;
+
+                                    img {
+                                        max-width: 100%;
+                                        height: auto;
+                                    }
                                 }
                             }
                         }
-                        }
-                        .input_flexBox{
+
+                        .input_flexBox {
                             @include flexbox();
                             flex-direction: column;
                             align-items: flex-start;
                             margin-bottom: 36px;
-                            label{
+
+                            label {
                                 margin-bottom: 10px;
                                 display: inline-block;
                                 font-size: 14px;
                                 font-style: normal;
                                 font-weight: 500;
-                                line-height: 20px; /* 142.857% */
+                                line-height: 20px;
+                                /* 142.857% */
                                 letter-spacing: 0.07px;
                                 color: $text;
                                 font-family: $font-monsterat;
                                 position: relative;
                                 text-align: left;
-                                &::after{
+
+                                &::after {
                                     content: "*";
                                     display: inline-block;
                                     position: absolute;
                                     left: calc(100% + 1px);
-                                    top:0;
+                                    top: 0;
                                     color: #EF4444;
                                     font-size: 14px;
                                     font-style: normal;
@@ -247,111 +287,125 @@ $font-monsterat : 'Montserrat';
                                     letter-spacing: 0.07px;
                                 }
                             }
-                            
-                                .text_input{
+
+                            .text_input {
+                                position: relative;
+                                z-index: 1;
+                                border-radius: 6px;
+                                height: 48px;
+                                // background-color: transparent;
+                                outline: none;
+                                padding: 14px 16px;
+                                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, -7px -7px 7px 0px #FFF inset;
+                                border: 1px solid #E5E7EB;
+                                font-size: 14px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 20px;
+                                /* 142.857% */
+                                letter-spacing: 0.07px;
+                                font-family: $font-monsterat;
+                                color: $text;
+                                width: 100%;
+                                background-color: #f2f5fa;
+
+                                &::placeholder {
+                                    color: #7D7D7D
+                                }
+                            }
+
+                            &.password_box {
+                                .grid_box {
                                     position: relative;
-                                    z-index: 1;
-                                    border-radius: 6px;
-                                    height: 48px;
-                                    // background-color: transparent;
-                                    outline: none;
-                                    padding: 14px 16px;
+                                    width: 100%;
+
+                                    .text_input {
+                                        padding: 14px 50px 14px 16px;
+                                    }
+
+                                    .eye_icon {
+                                        width: 48px;
+                                        height: 44px;
+                                        @include flexbox();
+                                        align-items: center;
+                                        justify-content: center;
+                                        cursor: pointer;
+                                        position: absolute;
+                                        z-index: 1;
+                                        right: 0;
+                                        top: 4px;
+                                        transform: none;
+                                    }
+
+                                    .pass_length_info {
+                                        font-size: 14px;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: 20px;
+                                        /* 142.857% */
+                                        letter-spacing: 0.07px;
+                                        font-family: $font-monsterat;
+                                        color: #9CA3AF;
+                                        display: block;
+                                        text-align: left;
+                                        margin-top: 10px;
+                                    }
+                                }
+                            }
+
+                            &.phonenumber_box {
+                                .grid_box {
+                                    @include flexbox();
                                     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, -7px -7px 7px 0px #FFF inset;
                                     border: 1px solid #E5E7EB;
-                                    font-size: 14px;
-                                    font-style: normal;
-                                    font-weight: 400;
-                                    line-height: 20px; /* 142.857% */
-                                    letter-spacing: 0.07px;
-                                    font-family: $font-monsterat;
-                                    color: $text;
-                                    width: 100%;
                                     background-color: #f2f5fa;
-                                    &::placeholder{
-                                        color: #7D7D7D
-                                    }
-                                }
-                                &.password_box{
-                                    .grid_box{
-                                        position: relative;
-                                        width: 100%;
-                                        .text_input{
-                                            padding: 14px 50px 14px 16px;
-                                        }
-                                        .eye_icon{
-                                            width: 48px;
-                                            height: 44px;
-                                            @include flexbox();
-                                            align-items: center;
-                                            justify-content: center;
-                                            cursor: pointer;
-                                            position: absolute;
-                                            z-index: 1;
-                                            right: 0;
-                                            top: 4px;
-                                            transform: none;
-                                        }
-                                        .pass_length_info{
-                                            font-size: 14px;
-                                            font-style: normal;
-                                            font-weight: 400;
-                                            line-height: 20px; /* 142.857% */
-                                            letter-spacing: 0.07px;
-                                            font-family: $font-monsterat;
-                                            color: #9CA3AF;
-                                            display: block;
-                                            text-align: left;
-                                            margin-top: 10px;
-                                        }
-                                    }
-                                }
-                                &.phonenumber_box{
-                                    .grid_box{
-                                        @include flexbox();
-                                        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, -7px -7px 7px 0px #FFF inset;
-                                        border: 1px solid #E5E7EB;
-                                        background-color: #f2f5fa;
-                                        width: 100%;
-                                        border-radius: 6px;
-                                        .MuiInputBase-root{
-                                            &.country_code{
-                                                min-width: 120px;
-                                                fieldset{
-                                                    display: none;
-                                                }
-                                                .MuiSelect-select {
-                                                    font-size: 14px;
-                                                    font-style: normal;
-                                                    font-weight: 400;
-                                                    line-height: 20px; /* 142.857% */
-                                                    letter-spacing: 0.07px;
-                                                    font-family: $font-monsterat;
-                                                    color: $text;
-                                                }
+                                    width: 100%;
+                                    border-radius: 6px;
+
+                                    .MuiInputBase-root {
+                                        &.country_code {
+                                            min-width: 120px;
+
+                                            fieldset {
+                                                display: none;
+                                            }
+
+                                            .MuiSelect-select {
+                                                font-size: 14px;
+                                                font-style: normal;
+                                                font-weight: 400;
+                                                line-height: 20px;
+                                                /* 142.857% */
+                                                letter-spacing: 0.07px;
+                                                font-family: $font-monsterat;
+                                                color: $text;
                                             }
                                         }
-                                        
-                                        .phone_input{
-                                            border: none;
-                                            box-shadow: none;
-                                            background-color: transparent;
-                                            outline: none;
-                                            padding: 14px 16px;
-                                            border-left: 1px solid #E5E7EB;
-                                            width: calc(100% - 120px);
-                                            font-size: 14px;
-                                            font-style: normal;
-                                            font-weight: 400;
-                                            line-height: 20px; /* 142.857% */
-                                            letter-spacing: 0.07px;
-                                            font-family: $font-monsterat;
-                                            color: $text;
-                                        }
+                                    }
+
+                                    .phone_input {
+                                        border: none;
+                                        box-shadow: none;
+                                        background-color: transparent;
+                                        outline: none;
+                                        padding: 14px 16px;
+                                        border-left: 1px solid #E5E7EB;
+                                        width: calc(100% - 120px);
+                                        font-size: 14px;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: 20px;
+                                        /* 142.857% */
+                                        letter-spacing: 0.07px;
+                                        font-family: $font-monsterat;
+                                        color: $text;
                                     }
                                 }
+                            }
                         }
-                        .submit_action{
-                            .continue_btn{
+
+                        .submit_action {
+                            .continue_btn {
                                 width: 100%;
                                 cursor: pointer;
                                 height: 48px;
@@ -363,24 +417,28 @@ $font-monsterat : 'Montserrat';
                                 font-size: 14px;
                                 font-style: normal;
                                 font-weight: 600;
-                                line-height: 20px; /* 142.857% */
+                                line-height: 20px;
+                                /* 142.857% */
                                 letter-spacing: 0.07px;
                                 font-family: $font-monsterat;
                                 color: $white;
                                 background-color: #00A9BB;
                                 border: none;
-                                &:focus:not(:focus-visible){
+
+                                &:focus:not(:focus-visible) {
                                     outline: none;
                                 }
-                                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), -7px -7px 7px 0px #FFF;
+
+                                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+                                -7px -7px 7px 0px #FFF;
                             }
                         }
                     }
                 }
-               
+
             }
 
-            &.email_verify{
+            &.email_verify {
                 margin-left: auto;
                 margin-right: auto;
                 max-width: 802px;
@@ -389,126 +447,149 @@ $font-monsterat : 'Montserrat';
                 background-color: $white;
                 border-radius: 12px;
                 box-shadow: 0px 10px 70px 0px rgba(0, 0, 0, 0.08);
-                .emailverifyPage_wrapper{
+
+                .emailverifyPage_wrapper {
                     margin-left: auto;
                     margin-right: auto;
                     max-width: 403px;
                     width: 100%;
-                    .title{
+
+                    .title {
                         text-align: center;
                         color: $text;
                         font-family: $font-monsterat;
                         font-size: 24px;
                         font-style: normal;
                         font-weight: 600;
-                        line-height: 32px; /* 133.333% */
+                        line-height: 32px;
+                        /* 133.333% */
                         letter-spacing: 0.12px;
                         margin-top: 0;
                         margin-bottom: 16px;
                     }
-                    .body_container{
-                    .email_info_text{
-                        font-size: 14px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 20px; /* 142.857% */
-                        letter-spacing: 0.07px;
-                        font-family: $font-monsterat;
-                        color: #6B7280;
-                        margin-top: 0;
-                        margin-bottom: 36px;
-                        text-align: left;
-                    }
-                    .otp_verify_title{
-                        color: $text;
-                        font-family: $font-monsterat;
-                        font-size: 20px;
-                        font-style: normal;
-                        font-weight: 600;
-                        line-height: 28px; /* 140% */
-                        letter-spacing: 0.1px;
-                        margin-bottom: 16px;
-                        text-align: center;
-                        display: block;
 
-                    }
-                    .otp_verification_box{
-                       .label{
-                        font-size: 14px;
-                        font-style: normal;
-                        font-weight: 500;
-                        line-height: 20px; /* 142.857% */
-                        letter-spacing: 0.07px;
-                        font-family: $font-monsterat;
-                        color: $text;
-                        display: block;
-                        margin-bottom: 10px;
-                        text-align: left;
-                       } 
-                       .flex_box{
-                        @include flexbox();
-                        margin-bottom: 36px;
-                        .input_code{
-                            &:focus:not(:focus-visible){
-                                outline: none;
-                            }
-                            background-color: #f2f5fa;
-                            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, -7px -7px 7px 0px #FFF inset;
-                            border: 1px solid #E5E7EB;
-                            margin-right: 10px;
-                            width: 32px;
-                            height: 40px;
-                            border-radius: 4px;
-                            @include flexbox();
-                            align-items: center;
-                            text-align: center;
-                            justify-content: center;
+                    .body_container {
+                        .email_info_text {
                             font-size: 14px;
                             font-style: normal;
                             font-weight: 400;
-                            line-height: 20px; /* 142.857% */
+                            line-height: 20px;
+                            /* 142.857% */
                             letter-spacing: 0.07px;
                             font-family: $font-monsterat;
                             color: #6B7280;
-                            &:focus:not(:focus-visible){
-                                outline: none;
-                             }
-                            outline: none;
-                            &:last-child{
-                                margin-right: 0;
+                            margin-top: 0;
+                            margin-bottom: 36px;
+                            text-align: left;
+                            white-space: normal;
+                            word-break: break-all;
+                            word-break: break-word;
+                        }
+
+                        .otp_verify_title {
+                            color: $text;
+                            font-family: $font-monsterat;
+                            font-size: 20px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: 28px;
+                            /* 140% */
+                            letter-spacing: 0.1px;
+                            margin-bottom: 16px;
+                            text-align: center;
+                            display: block;
+
+                        }
+
+                        .otp_verification_box {
+                            .label {
+                                font-size: 14px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: 20px;
+                                /* 142.857% */
+                                letter-spacing: 0.07px;
+                                font-family: $font-monsterat;
+                                color: $text;
+                                display: block;
+                                margin-bottom: 10px;
+                                text-align: left;
+                            }
+
+                            .flex_box {
+                                @include flexbox();
+                                margin-bottom: 36px;
+
+                                .input_code {
+                                    &:focus:not(:focus-visible) {
+                                        outline: none;
+                                    }
+
+                                    background-color: #f2f5fa;
+                                    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset,
+                                    -7px -7px 7px 0px #FFF inset;
+                                    border: 1px solid #E5E7EB;
+                                    margin-right: 10px;
+                                    width: 32px;
+                                    height: 40px;
+                                    border-radius: 4px;
+                                    @include flexbox();
+                                    align-items: center;
+                                    text-align: center;
+                                    justify-content: center;
+                                    font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: 20px;
+                                    /* 142.857% */
+                                    letter-spacing: 0.07px;
+                                    font-family: $font-monsterat;
+                                    color: #6B7280;
+
+                                    &:focus:not(:focus-visible) {
+                                        outline: none;
+                                    }
+
+                                    outline: none;
+
+                                    &:last-child {
+                                        margin-right: 0;
+                                    }
+                                }
                             }
                         }
-                       }
-                    }
-                    .action{
-                       .next_btn{
-                        width: 100%;
-                        cursor: pointer;
-                        height: 48px;
-                        border-radius: 8px;
-                        padding: 14px 16px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 14px;
-                        font-style: normal;
-                        font-weight: 600;
-                        line-height: 20px;
-                        letter-spacing: 0.07px;
-                        font-family: "Montserrat";
-                        color: #FFF;
-                        background-color: #00A9BB;
-                        border: none;
-                        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), -7px -7px 7px 0px #FFF;
-                        &:focus:not(:focus-visible){
-                            outline: none;
+
+                        .action {
+                            .next_btn {
+                                width: 100%;
+                                cursor: pointer;
+                                height: 48px;
+                                border-radius: 8px;
+                                padding: 14px 16px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 14px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: 20px;
+                                letter-spacing: 0.07px;
+                                font-family: "Montserrat";
+                                color: #FFF;
+                                background-color: #00A9BB;
+                                border: none;
+                                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), -7px -7px 7px 0px #FFF;
+
+                                &:focus:not(:focus-visible) {
+                                    outline: none;
+                                }
+                            }
                         }
-                       } 
                     }
-                }
                 }
             }
-            &.registration{
+
+            &.registration {
                 margin-left: auto;
                 margin-right: auto;
                 max-width: 954px;
@@ -516,64 +597,73 @@ $font-monsterat : 'Montserrat';
                 padding: 64px;
                 background-color: $white;
                 border-radius: 12px;
-                box-shadow: 0px 10px 70px 0px rgba(0, 0, 0, 0.08); 
-                .stepper_container{
+                box-shadow: 0px 10px 70px 0px rgba(0, 0, 0, 0.08);
+
+                .stepper_container {
                     max-width: 674px;
                     width: 100%;
                     margin-left: auto;
                     margin-right: auto;
                 }
-                .registrationPage_wrapper{
-                    .title{
+
+                .registrationPage_wrapper {
+                    .title {
                         text-align: center;
                         color: $text;
                         font-family: $font-monsterat;
                         font-size: 24px;
                         font-style: normal;
                         font-weight: 600;
-                        line-height: 32px; /* 133.333% */
+                        line-height: 32px;
+                        /* 133.333% */
                         letter-spacing: 0.12px;
                         margin-top: 0;
                         margin-bottom: 36px;
                     }
-                    .body_container{
-                       .grid_box{
-                        @include flexbox();
-                        margin: 0 -10px;
-                        .input_flexBox, .select_flexBox{
-                            margin: 0 10px 36px 10px;
-                            width: calc(50% - 20px);
+
+                    .body_container {
+                        .grid_box {
                             @include flexbox();
-                            flex-direction: column;
-                            align-items: flex-start;
-                            label{
-                                margin-bottom: 10px;
-                                display: inline-block;
-                                font-size: 14px;
-                                font-style: normal;
-                                font-weight: 500;
-                                line-height: 20px; /* 142.857% */
-                                letter-spacing: 0.07px;
-                                color: $text;
-                                font-family: $font-monsterat;
-                                position: relative;
-                                text-align: left;
-                                &::after{
-                                    content: "*";
+                            margin: 0 -10px;
+
+                            .input_flexBox,
+                            .select_flexBox {
+                                margin: 0 10px 36px 10px;
+                                width: calc(50% - 20px);
+                                @include flexbox();
+                                flex-direction: column;
+                                align-items: flex-start;
+
+                                label {
+                                    margin-bottom: 10px;
                                     display: inline-block;
-                                    position: absolute;
-                                    left: calc(100% + 1px);
-                                    top:0;
-                                    color: #EF4444;
                                     font-size: 14px;
                                     font-style: normal;
-                                    font-weight: 700;
+                                    font-weight: 500;
                                     line-height: 20px;
+                                    /* 142.857% */
                                     letter-spacing: 0.07px;
+                                    color: $text;
+                                    font-family: $font-monsterat;
+                                    position: relative;
+                                    text-align: left;
+
+                                    &::after {
+                                        content: "*";
+                                        display: inline-block;
+                                        position: absolute;
+                                        left: calc(100% + 1px);
+                                        top: 0;
+                                        color: #EF4444;
+                                        font-size: 14px;
+                                        font-style: normal;
+                                        font-weight: 700;
+                                        line-height: 20px;
+                                        letter-spacing: 0.07px;
+                                    }
                                 }
-                            }
-                            
-                                .input_text{
+
+                                .input_text {
                                     position: relative;
                                     z-index: 1;
                                     border-radius: 8px;
@@ -586,220 +676,260 @@ $font-monsterat : 'Montserrat';
                                     font-size: 14px;
                                     font-style: normal;
                                     font-weight: 400;
-                                    line-height: 20px; /* 142.857% */
+                                    line-height: 20px;
+                                    /* 142.857% */
                                     letter-spacing: 0.07px;
                                     font-family: $font-monsterat;
                                     color: $text;
                                     width: 100%;
                                     background-color: #f2f5fa;
-                                    &::placeholder{
+
+                                    &::placeholder {
                                         color: #7D7D7D
                                     }
                                 }
-                                    .MuiInputBase-root{
-                                            width: 100%;
-                                            box-sizing: border-box;
-                                            *{
-                                                box-sizing: border-box;
-                                            }
-                                            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, -7px -7px 7px 0px #FFF inset;
-                                            border: 1px solid #E5E7EB;
-                                            border-radius:8px;
-                                            background-color: #f2f5fa;
-                                            .MuiSelect-select{
-                                                height: 48px;
-                                                min-height: auto;
-                                                font-family: $font-monsterat;
-                                                font-size: 14px;
-                                                font-style: normal;
-                                                font-weight: 400;
-                                                line-height: 20px; /* 142.857% */
-                                                letter-spacing: 0.07px;
-                                                color: #7D7D7D;
-                                                text-align: left;
-                                            }
-                                            fieldset{
-                                                display: none;
-                                            }
-                                        
-                                    }
-                              
-                        }
-                        .select_flexbox{
-                            @include flexbox();
-                            margin: 0  -18px;
-                            .dropdown{
-                                @include flexbox();
-                                flex-direction: column;
-                                align-items: flex-start;
-                                width: calc(50% - 36px);
-                                margin: 0 18px 36px 18px;
-                                label{
-                                    margin-bottom: 10px;
-                                    display: inline-block;
-                                    font-size: 14px;
-                                    font-style: normal;
-                                    font-weight: 500;
-                                    line-height: 20px; /* 142.857% */
-                                    letter-spacing: 0.07px;
-                                    color: $text;
-                                    font-family: $font-monsterat;
-                                    position: relative;
-                                    text-align: left;
-                                    white-space: nowrap;
-                                    &::after{
-                                        content: "*";
-                                        display: inline-block;
-                                        position: absolute;
-                                        left: calc(100% + 1px);
-                                        top:0;
-                                        color: #EF4444;
-                                        font-size: 14px;
-                                        font-style: normal;
-                                        font-weight: 700;
-                                        line-height: 20px;
-                                        letter-spacing: 0.07px;
-                                    }
-                                }
-                                .MuiInputBase-root{
+
+                                .MuiInputBase-root {
                                     width: 100%;
                                     box-sizing: border-box;
-                                    *{
+
+                                    * {
                                         box-sizing: border-box;
                                     }
-                                    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, -7px -7px 7px 0px #FFF inset;
+
+                                    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset,
+                                    -7px -7px 7px 0px #FFF inset;
                                     border: 1px solid #E5E7EB;
                                     border-radius:8px;
                                     background-color: #f2f5fa;
-                                    .MuiSelect-select{
+
+                                    .MuiSelect-select {
                                         height: 48px;
                                         min-height: auto;
                                         font-family: $font-monsterat;
                                         font-size: 14px;
                                         font-style: normal;
                                         font-weight: 400;
-                                        line-height: 20px; /* 142.857% */
+                                        line-height: 20px;
+                                        /* 142.857% */
                                         letter-spacing: 0.07px;
                                         color: #7D7D7D;
                                         text-align: left;
                                     }
-                                    fieldset{
+
+                                    fieldset {
                                         display: none;
                                     }
+
                                 }
+
                             }
-                        }
-                       }
-                       .dropbox_container{
-                        margin-bottom: 36px;
-                        width: 100%;
-                        @include flexbox();
-                        align-items: flex-start;
-                        flex-direction: column;
-                        >  label{
-                            margin-bottom: 10px;
-                            display: inline-block;
-                            font-size: 14px;
-                            font-style: normal;
-                            font-weight: 500;
-                            line-height: 20px; /* 142.857% */
-                            letter-spacing: 0.07px;
-                            color: $text;
-                            font-family: $font-monsterat;
-                            position: relative;
-                            text-align: left;
-                            &::after{
-                                content: "*";
-                                display: inline-block;
-                                position: absolute;
-                                left: calc(100% + 1px);
-                                top:0;
-                                color: #EF4444;
-                                font-size: 14px;
-                                font-style: normal;
-                                font-weight: 700;
-                                line-height: 20px;
-                                letter-spacing: 0.07px;
-                            }
-                        }
-                        .dropBox{
-                            width: 100%;
-                            height: 144px;
-                            position: relative;
-                            border-radius: 12px;
-                            border: 1px dashed #E5E7EB;
-                            .content{
-                                position: absolute;
-                                left: 50%;
-                                top: 50%;
-                                transform: translate(-50%, -50%);
-                                z-index: 1;
-                                .up_title{
-                                    display: block;
-                                    margin-bottom: 4px;
-                                    font-size: 16px;
-                                    font-style: normal;
-                                    font-weight: 500;
-                                    line-height: 24px; /* 150% */
-                                    letter-spacing: 0.08px;
-                                    text-align: center;
-                                    color: $text;
-                                    font-family: $font-monsterat;
-                                    .bluehighlight{
-                                        color: #00A9BB;     
-                                        font-weight: 600;
+
+                            .select_flexbox {
+                                @include flexbox();
+                                margin: 0 -18px;
+
+                                .dropdown {
+                                    @include flexbox();
+                                    flex-direction: column;
+                                    align-items: flex-start;
+                                    width: calc(50% - 36px);
+                                    margin: 0 18px 36px 18px;
+
+                                    label {
+                                        margin-bottom: 10px;
+                                        display: inline-block;
+                                        font-size: 14px;
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        line-height: 20px;
+                                        /* 142.857% */
+                                        letter-spacing: 0.07px;
+                                        color: $text;
+                                        font-family: $font-monsterat;
+                                        position: relative;
+                                        text-align: left;
+                                        white-space: nowrap;
+
+                                        &::after {
+                                            content: "*";
+                                            display: inline-block;
+                                            position: absolute;
+                                            left: calc(100% + 1px);
+                                            top: 0;
+                                            color: #EF4444;
+                                            font-size: 14px;
+                                            font-style: normal;
+                                            font-weight: 700;
+                                            line-height: 20px;
+                                            letter-spacing: 0.07px;
+                                        }
+                                    }
+
+                                    .MuiInputBase-root {
+                                        width: 100%;
+                                        box-sizing: border-box;
+
+                                        * {
+                                            box-sizing: border-box;
+                                        }
+
+                                        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset,
+                                        -7px -7px 7px 0px #FFF inset;
+                                        border: 1px solid #E5E7EB;
+                                        border-radius:8px;
+                                        background-color: #f2f5fa;
+
+                                        .MuiSelect-select {
+                                            height: 48px;
+                                            min-height: auto;
+                                            font-family: $font-monsterat;
+                                            font-size: 14px;
+                                            font-style: normal;
+                                            font-weight: 400;
+                                            line-height: 20px;
+                                            /* 142.857% */
+                                            letter-spacing: 0.07px;
+                                            color: #7D7D7D;
+                                            text-align: left;
+                                        }
+
+                                        fieldset {
+                                            display: none;
+                                        }
                                     }
                                 }
-                                .soft_title{
-                                    display: block;
-                                    text-align: center;
+                            }
+                        }
+
+                        .dropbox_container {
+                            margin-bottom: 36px;
+                            width: 100%;
+                            @include flexbox();
+                            align-items: flex-start;
+                            flex-direction: column;
+
+                            >label {
+                                margin-bottom: 10px;
+                                display: inline-block;
+                                font-size: 14px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: 20px;
+                                /* 142.857% */
+                                letter-spacing: 0.07px;
+                                color: $text;
+                                font-family: $font-monsterat;
+                                position: relative;
+                                text-align: left;
+
+                                &::after {
+                                    content: "*";
+                                    display: inline-block;
+                                    position: absolute;
+                                    left: calc(100% + 1px);
+                                    top: 0;
+                                    color: #EF4444;
                                     font-size: 14px;
                                     font-style: normal;
-                                    font-weight: 500;
-                                    line-height: 20px; /* 142.857% */
+                                    font-weight: 700;
+                                    line-height: 20px;
                                     letter-spacing: 0.07px;
-                                    font-family: $font-monsterat;
-                                    color: #9CA3AF;
+                                }
+                            }
+
+                            .dropBox {
+                                width: 100%;
+                                height: 144px;
+                                position: relative;
+                                border-radius: 12px;
+                                border: 1px dashed #E5E7EB;
+
+                                .content {
+                                    position: absolute;
+                                    left: 50%;
+                                    top: 50%;
+                                    transform: translate(-50%, -50%);
+                                    z-index: 1;
+
+                                    .up_title {
+                                        display: block;
+                                        margin-bottom: 4px;
+                                        font-size: 16px;
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        line-height: 24px;
+                                        /* 150% */
+                                        letter-spacing: 0.08px;
+                                        text-align: center;
+                                        color: $text;
+                                        font-family: $font-monsterat;
+
+                                        .bluehighlight {
+                                            color: #00A9BB;
+                                            font-weight: 600;
+                                        }
+                                    }
+
+                                    .soft_title {
+                                        display: block;
+                                        text-align: center;
+                                        font-size: 14px;
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        line-height: 20px;
+                                        /* 142.857% */
+                                        letter-spacing: 0.07px;
+                                        font-family: $font-monsterat;
+                                        color: #9CA3AF;
+                                    }
                                 }
                             }
                         }
-                       }
-                       .bottom_inputOption{
-                        margin-bottom: 24px;
-                        ul{
-                            margin: 0;
-                            padding: 0;
-                            li{
-                                list-style: none;
-                                margin-bottom: 8px;
-                                text-align: left;
-                                &:last-child{
-                                    margin-bottom: 0;
-                                }
-                                &:first-child{
-                                    margin-bottom: 36px;
-                                }
-                                .MuiFormControl-root{
-                                    &.switch_radio{
-                                        .MuiFormLabel-root{
+
+                        .bottom_inputOption {
+                            margin-bottom: 24px;
+
+                            ul {
+                                margin: 0;
+                                padding: 0;
+
+                                li {
+                                    list-style: none;
+                                    margin-bottom: 8px;
+                                    text-align: left;
+
+                                    &:last-child {
+                                        margin-bottom: 0;
+                                    }
+
+                                    &:first-child {
+                                        margin-bottom: 36px;
+                                    }
+
+                                    .MuiFormControl-root {
+                                        &.switch_radio {
+                                            .MuiFormLabel-root {
                                                 margin-bottom: 10px;
                                                 display: inline-block;
                                                 font-size: 14px;
                                                 font-style: normal;
                                                 font-weight: 500;
-                                                line-height: 20px; /* 142.857% */
+                                                line-height: 20px;
+                                                /* 142.857% */
                                                 letter-spacing: 0.07px;
                                                 color: $text;
                                                 font-family: $font-monsterat;
                                                 position: relative;
                                                 text-align: left;
                                                 white-space: nowrap;
-                                                &::after{
+
+                                                &::after {
                                                     content: "*";
                                                     display: inline-block;
                                                     position: absolute;
                                                     left: calc(100% + 1px);
-                                                    top:0;
+                                                    top: 0;
                                                     color: #EF4444;
                                                     font-size: 14px;
                                                     font-style: normal;
@@ -807,140 +937,163 @@ $font-monsterat : 'Montserrat';
                                                     line-height: 20px;
                                                     letter-spacing: 0.07px;
                                                 }
-                                            
-                                        }
-                                        .MuiRadioGroup-root{
-                                            @include flexbox();
-                                            flex-direction: row;
-                                            .MuiFormControlLabel-root{
-                                                .MuiTypography-root {
-                                                    font-family: $font-monsterat;
-                                                    font-size: 16px;
-                                                    font-style: normal;
-                                                    font-weight: 500;
-                                                    line-height: 24px; /* 150% */
-                                                    letter-spacing: 0.08px;
-                                                    color: #7D7D7D;
+
+                                            }
+
+                                            .MuiRadioGroup-root {
+                                                @include flexbox();
+                                                flex-direction: row;
+
+                                                .MuiFormControlLabel-root {
+                                                    .MuiTypography-root {
+                                                        font-family: $font-monsterat;
+                                                        font-size: 16px;
+                                                        font-style: normal;
+                                                        font-weight: 500;
+                                                        line-height: 24px;
+                                                        /* 150% */
+                                                        letter-spacing: 0.08px;
+                                                        color: #7D7D7D;
+                                                    }
                                                 }
                                             }
                                         }
                                     }
-                                }
-                                .MuiFormGroup-root{
-                                    &.checkBox_block{
-                                        .MuiFormControlLabel-root{
-                                            .MuiTypography-root{
-                                                font-size: 16px;
-                                                font-style: normal;
-                                                font-weight: 400;
-                                                line-height: 24px; /* 150% */
-                                                letter-spacing: 0.08px;
-                                                font-family: $font-monsterat;
-                                                color: $text;
+
+                                    .MuiFormGroup-root {
+                                        &.checkBox_block {
+                                            .MuiFormControlLabel-root {
+                                                .MuiTypography-root {
+                                                    font-size: 16px;
+                                                    font-style: normal;
+                                                    font-weight: 400;
+                                                    line-height: 24px;
+                                                    /* 150% */
+                                                    letter-spacing: 0.08px;
+                                                    font-family: $font-monsterat;
+                                                    color: $text;
+                                                }
                                             }
                                         }
                                     }
-                                } 
-                               
+
+                                }
                             }
                         }
-                       }
-                       .action{
-                        .next_btn{
-                            width: 100%;
-                            cursor: pointer;
-                            height: 48px;
-                            border-radius: 8px;
-                            padding: 14px 16px;
-                            @include flexbox();
-                            align-items: center;
-                            justify-content: center;
-                            font-size: 14px;
-                            font-style: normal;
-                            font-weight: 600;
-                            line-height: 20px; /* 142.857% */
-                            letter-spacing: 0.07px;
-                            font-family: $font-monsterat;
-                            color: $white;
-                            background-color: #00A9BB;
-                            border: none;
-                            &:focus:not(:focus-visible){
-                                outline: none;
+
+                        .action {
+                            .next_btn {
+                                width: 100%;
+                                cursor: pointer;
+                                height: 48px;
+                                border-radius: 8px;
+                                padding: 14px 16px;
+                                @include flexbox();
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 14px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: 20px;
+                                /* 142.857% */
+                                letter-spacing: 0.07px;
+                                font-family: $font-monsterat;
+                                color: $white;
+                                background-color: #00A9BB;
+                                border: none;
+
+                                &:focus:not(:focus-visible) {
+                                    outline: none;
+                                }
+
+                                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+                                -7px -7px 7px 0px #FFF;
                             }
-                            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), -7px -7px 7px 0px #FFF;
                         }
-                       }
                     }
                 }
             }
-            &.subscriptionPlan{
+
+            &.subscriptionPlan {
                 width: 100%;
                 max-width: 1320px;
-                margin-left: auto;
-                margin-right: auto;
+                margin-left: 15px;
+                margin-right: 15px;
                 padding: 64px;
                 background-color: $white;
                 border-radius: 12px;
                 box-shadow: 0px 10px 70px 0px rgba(0, 0, 0, 0.08);
-                .stepper_container{
+
+                .stepper_container {
                     max-width: 674px;
                     width: 100%;
                     margin-left: auto;
                     margin-right: auto;
                 }
-                .subscriptionPlanPage_wrapper{
-                    .title{
+
+                .subscriptionPlanPage_wrapper {
+                    .title {
                         margin-top: 0;
                         font-family: $font-monsterat;
                         font-size: 24px;
                         font-style: normal;
                         font-weight: 600;
-                        line-height: 32px; /* 133.333% */
+                        line-height: 32px;
+                        /* 133.333% */
                         letter-spacing: 0.12px;
                         color: $text;
                         margin-bottom: 28px;
                     }
-                    .body_container{
-                        .MuiBox-root{
-                            .MuiTabs-root{
-                                .MuiTabs-scroller{
-                                    .MuiTabs-flexContainer{
+
+                    .body_container {
+                        .MuiBox-root {
+                            .MuiTabs-root {
+                                .MuiTabs-scroller {
+                                    .MuiTabs-flexContainer {
                                         justify-content: center;
-                                        .MuiButtonBase-root{
+
+                                        .MuiButtonBase-root {
                                             font-size: 14px;
                                             font-style: normal;
                                             font-weight: 500;
-                                            line-height: 20px; /* 142.857% */
+                                            line-height: 20px;
+                                            /* 142.857% */
                                             letter-spacing: 0.07px;
                                             color: $text;
                                             font-family: $font-monsterat;
                                             border-bottom: 1px solid #E5E7EB;
                                             text-transform: capitalize;
-                                            &.Mui-selected{
+
+                                            &.Mui-selected {
                                                 border-bottom: none;
                                                 color: #00A9BB;
                                             }
                                         }
                                     }
-                                    .MuiTabs-indicator{
+
+                                    .MuiTabs-indicator {
                                         background-color: #00A9BB;
                                     }
                                 }
                             }
-                            .tabcontent_container{
-                                .MuiBox-root{
+
+                            .tabcontent_container {
+                                .MuiBox-root {
                                     padding: 24px 0 0 0px;
-                                    .planCard_flexBox{
+
+                                    .planCard_flexBox {
                                         @include flexbox();
                                         margin: 0 -8px;
-                                        .planCard_container{
+
+                                        .planCard_container {
                                             padding: 32px 16px 68px 16px;
-                                            border:1px solid #D9F2F5;
+                                            border: 1px solid #D9F2F5;
                                             border-radius: 12px;
                                             margin: 0 8px;
                                             width: calc(25% - 16px);
                                             position: relative;
-                                            .status_label{
+
+                                            .status_label {
                                                 display: inline-block;
                                                 border-radius: 6px;
                                                 background-color: #D9F2F5;
@@ -948,70 +1101,83 @@ $font-monsterat : 'Montserrat';
                                                 font-size: 12px;
                                                 font-style: normal;
                                                 font-weight: 500;
-                                                line-height: 16px; /* 133.333% */
+                                                line-height: 16px;
+                                                /* 133.333% */
                                                 letter-spacing: 0.06px;
                                                 font-family: $font-monsterat;
                                                 color: #003B41;
                                                 margin-bottom: 8px;
                                             }
-                                            .title{
+
+                                            .title {
                                                 display: block;
                                                 text-align: center;
                                                 font-size: 16px;
                                                 font-style: normal;
                                                 font-weight: 500;
-                                                line-height: 24px; /* 150% */
+                                                line-height: 24px;
+                                                /* 150% */
                                                 letter-spacing: 0.08px;
                                                 font-family: $font-monsterat;
                                                 color: #3F3F46;
                                                 margin-bottom: 8px;
                                             }
-                                            .price{
+
+                                            .price {
                                                 display: block;
                                                 text-align: center;
                                                 font-size: 30px;
                                                 font-style: normal;
                                                 font-weight: 500;
-                                                line-height: 36px; /* 120% */
+                                                line-height: 36px;
+                                                /* 120% */
                                                 letter-spacing: 0.15px;
                                                 color: #18181B;
                                                 font-family: $font-monsterat;
                                                 margin-bottom: 24px;
                                             }
-                                            .info{
+
+                                            .info {
                                                 display: block;
-                                                text-align: center; 
+                                                text-align: center;
                                                 font-size: 16px;
                                                 font-style: normal;
                                                 font-weight: 400;
-                                                line-height: 24px; /* 150% */
+                                                line-height: 24px;
+                                                /* 150% */
                                                 letter-spacing: 0.08px;
                                                 color: #6B7280;
                                                 margin-bottom: 56px;
                                                 font-family: $font-monsterat;
                                             }
-                                            .info_points{
+
+                                            .info_points {
                                                 margin: 0;
                                                 padding: 0;
-                                                .points{
+
+                                                .points {
                                                     list-style: none;
                                                     margin-bottom: 12px;
                                                     text-align: left;
                                                     @include flexbox();
-                                                    &:last-child{
+
+                                                    &:last-child {
                                                         margin-bottom: 0;
                                                     }
-                                                    .icon{
+
+                                                    .icon {
                                                         display: inline-block;
                                                         margin-right: 6px;
                                                         width: 24px;
                                                         height: 24px;
                                                     }
-                                                    .text{
+
+                                                    .text {
                                                         font-size: 16px;
                                                         font-style: normal;
                                                         font-weight: 400;
-                                                        line-height: 24px; /* 150% */
+                                                        line-height: 24px;
+                                                        /* 150% */
                                                         letter-spacing: 0.08px;
                                                         font-family: $font-monsterat;
                                                         display: inline-block;
@@ -1019,7 +1185,8 @@ $font-monsterat : 'Montserrat';
                                                     }
                                                 }
                                             }
-                                            .action{
+
+                                            .action {
                                                 @include flexbox();
                                                 justify-content: center;
                                                 position: absolute;
@@ -1027,40 +1194,46 @@ $font-monsterat : 'Montserrat';
                                                 bottom: 16px;
                                                 left: 50%;
                                                 transform: translateX(-50%);
-                                               .buyBtn{
-                                                cursor: pointer;
-                                                white-space: nowrap;
-                                                border-radius: 8px;
-                                                border: 1px solid #D9F2F5;
-                                                font-size: 14px;
-                                                font-style: normal;
-                                                font-weight: 600;
-                                                line-height: 20px; /* 142.857% */
-                                                letter-spacing: 0.07px;
-                                                font-family: $font-monsterat;
-                                                color: #00A9BB;
-                                                height: 40px;
-                                                background-color: $white;
-                                                @include flexbox();
-                                                align-items: center;
-                                                justify-content: center;
-                                                padding: 10px 64px;
-                                               } 
+
+                                                .buyBtn {
+                                                    cursor: pointer;
+                                                    white-space: nowrap;
+                                                    border-radius: 8px;
+                                                    border: 1px solid #D9F2F5;
+                                                    font-size: 14px;
+                                                    font-style: normal;
+                                                    font-weight: 600;
+                                                    line-height: 20px;
+                                                    /* 142.857% */
+                                                    letter-spacing: 0.07px;
+                                                    font-family: $font-monsterat;
+                                                    color: #00A9BB;
+                                                    height: 40px;
+                                                    background-color: $white;
+                                                    @include flexbox();
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    padding: 10px 64px;
+                                                }
                                             }
-                                            &.active, &:hover{
-                                               
+
+                                            &.active,
+                                            &:hover {
+
                                                 border-color: #00A9BB;
                                                 box-shadow: 0px 10px 8px 0px rgba(0, 0, 0, 0.04), 0px 4px 3px 0px rgba(0, 0, 0, 0.10);
-                                                .action{
-                                                    width: calc(100% - 32px);
-                                                   .buyBtn{
-                                                    width: 100%;
-                                                    color: $white;
-                                                    background-color: #00A9BB;
-                                                    border: none;
-                                                    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), -1px -7px 7px 0px #FFF;
 
-                                                   } 
+                                                .action {
+                                                    width: calc(100% - 32px);
+
+                                                    .buyBtn {
+                                                        width: 100%;
+                                                        color: $white;
+                                                        background-color: #00A9BB;
+                                                        border: none;
+                                                        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), -1px -7px 7px 0px #FFF;
+
+                                                    }
                                                 }
                                             }
                                         }
@@ -1071,7 +1244,8 @@ $font-monsterat : 'Montserrat';
                     }
                 }
             }
-            &.paymentMethod{
+
+            &.paymentMethod {
                 border-radius: 12px;
                 box-shadow: 0px 10px 70px 0px rgba(0, 0, 0, 0.08);
                 margin-left: auto;
@@ -1079,22 +1253,25 @@ $font-monsterat : 'Montserrat';
                 padding: 64px;
                 width: 100%;
                 max-width: 740px;
-                .paymentMethodPage_wrapper{
-                    .title{
+
+                .paymentMethodPage_wrapper {
+                    .title {
                         margin-top: 0;
                         margin-bottom: 36px;
                         font-size: 24px;
                         font-style: normal;
                         font-weight: 600;
-                        line-height: 32px; /* 133.333% */
+                        line-height: 32px;
+                        /* 133.333% */
                         letter-spacing: 0.12px;
                         font-family: $font-monsterat;
                         color: $text;
 
                     }
-                    .body_container{
-                        .MuiFormControl-root{
-                            &.paymentModes{
+
+                    .body_container {
+                        .MuiFormControl-root {
+                            &.paymentModes {
                                 border: 1px solid #E9E9E9;
                                 border-radius: 12px;
                                 width: 100%;
@@ -1102,49 +1279,58 @@ $font-monsterat : 'Montserrat';
                                 margin-left: auto;
                                 margin-right: auto;
                                 margin-bottom: 36px;
-                                .MuiRadioGroup-root{
-                                    .MuiFormControlLabel-root{
+
+                                .MuiRadioGroup-root {
+                                    .MuiFormControlLabel-root {
                                         border-bottom: 1px solid #E9E9E9;
                                         padding: 16px;
                                         margin-left: 0;
                                         margin-right: 0;
                                         position: relative;
-                                        &:last-child{
+
+                                        &:last-child {
                                             border-bottom: none;
                                         }
-                                        .MuiRadio-root{
+
+                                        .MuiRadio-root {
                                             padding: 0 16px 0 0;
-                                            span{
-                                                > svg{
+
+                                            span {
+                                                >svg {
                                                     fill: transparent;
                                                     border-radius: 50%;
                                                     border: 1px solid #E5E7EB;
                                                     width: 16px;
                                                     height: 16px;
-                                                    &:last-child{
+
+                                                    &:last-child {
                                                         display: none;
                                                     }
                                                 }
                                             }
-                                            &.Mui-checked{
-                                                span{
-                                                    svg{
-                                                        border:5px solid #00A9BB;
+
+                                            &.Mui-checked {
+                                                span {
+                                                    svg {
+                                                        border: 5px solid #00A9BB;
                                                     }
                                                 }
                                             }
                                         }
-                                        .MuiTypography-root{
+
+                                        .MuiTypography-root {
                                             font-size: 16px;
                                             font-style: normal;
                                             font-weight: 500;
-                                            line-height: 24px; /* 150% */
+                                            line-height: 24px;
+                                            /* 150% */
                                             letter-spacing: 0.08px;
                                             font-family: $font-monsterat;
                                             color: #131313;
                                         }
-                                        &.bank_transfer{
-                                            &::after{
+
+                                        &.bank_transfer {
+                                            &::after {
                                                 content: '';
                                                 display: inline-block;
                                                 position: absolute;
@@ -1158,8 +1344,9 @@ $font-monsterat : 'Montserrat';
 
                                             }
                                         }
+
                                         &.pay_pal {
-                                            &::after{
+                                            &::after {
                                                 content: '';
                                                 display: inline-block;
                                                 position: absolute;
@@ -1174,8 +1361,9 @@ $font-monsterat : 'Montserrat';
 
                                             }
                                         }
-                                        &.credit_debit{
-                                            &::after{
+
+                                        &.credit_debit {
+                                            &::after {
                                                 content: '';
                                                 display: inline-block;
                                                 position: absolute;
@@ -1189,7 +1377,8 @@ $font-monsterat : 'Montserrat';
                                                 background-repeat: no-repeat;
 
                                             }
-                                            &::before{
+
+                                            &::before {
                                                 content: '';
                                                 display: inline-block;
                                                 position: absolute;
@@ -1207,37 +1396,42 @@ $font-monsterat : 'Montserrat';
                                     }
                                 }
                             }
-                        } 
-                        .form_container{
+                        }
+
+                        .form_container {
                             max-width: 403px;
                             margin-left: auto;
                             margin-right: auto;
                             width: 100%;
-                            form{
-                                .input_box{
+
+                            form {
+                                .input_box {
                                     margin-bottom: 36px;
                                     @include flexbox();
                                     flex-direction: column;
                                     align-items: flex-start;
                                     position: relative;
-                                    label{
+
+                                    label {
                                         margin-bottom: 10px;
                                         display: inline-block;
                                         font-size: 14px;
                                         font-style: normal;
                                         font-weight: 700;
-                                        line-height: 20px; /* 142.857% */
+                                        line-height: 20px;
+                                        /* 142.857% */
                                         letter-spacing: 0.07px;
                                         color: $text;
                                         font-family: $font-monsterat;
                                         position: relative;
                                         text-align: left;
-                                        &::after{
+
+                                        &::after {
                                             content: "*";
                                             display: inline-block;
                                             position: absolute;
                                             left: calc(100% + 1px);
-                                            top:0;
+                                            top: 0;
                                             color: #EF4444;
                                             font-size: 14px;
                                             font-style: normal;
@@ -1246,7 +1440,8 @@ $font-monsterat : 'Montserrat';
                                             letter-spacing: 0.07px;
                                         }
                                     }
-                                    .input_text{
+
+                                    .input_text {
                                         position: relative;
                                         z-index: 1;
                                         border-radius: 6px;
@@ -1259,22 +1454,26 @@ $font-monsterat : 'Montserrat';
                                         font-size: 14px;
                                         font-style: normal;
                                         font-weight: 400;
-                                        line-height: 20px; /* 142.857% */
+                                        line-height: 20px;
+                                        /* 142.857% */
                                         letter-spacing: 0.07px;
                                         font-family: $font-monsterat;
                                         color: $text;
                                         width: 100%;
                                         background-color: #f2f5fa;
-                                        &::placeholder{
+
+                                        &::placeholder {
                                             color: #7D7D7D
                                         }
                                     }
-                                    &.card_number_box{
-                                        .input_text{
+
+                                    &.card_number_box {
+                                        .input_text {
                                             padding: 14px 50px 14px 16px;
 
                                         }
-                                        &::after{
+
+                                        &::after {
                                             content: '';
                                             display: inline-block;
                                             width: 16px;
@@ -1288,21 +1487,24 @@ $font-monsterat : 'Montserrat';
                                             z-index: 1;
                                         }
                                     }
-                                    &.grid_box{
+
+                                    &.grid_box {
                                         width: 90%;
                                         flex-direction: row;
                                         @include flexbox();
                                         margin-left: -18px;
                                         margin-right: -18px;
-                                        .flex_item{
+
+                                        .flex_item {
                                             width: calc(50% - 36px);
                                             margin: 0 18px;
                                             position: relative;
                                             @include flexbox();
                                             flex-direction: column;
                                             align-items: flex-start;
-                                            &.cvv_code{
-                                                &::after{
+
+                                            &.cvv_code {
+                                                &::after {
                                                     content: "";
                                                     display: inline-block;
                                                     position: absolute;
@@ -1311,16 +1513,18 @@ $font-monsterat : 'Montserrat';
                                                     z-index: 1;
                                                     right: 16px;
                                                     top: 48px;
-                                                    background-image:url('../../assets/images/info.svg');
+                                                    background-image: url('../../assets/images/info.svg');
                                                     background-repeat: no-repeat;
                                                 }
                                             }
                                         }
                                     }
                                 }
-                                .action{
+
+                                .action {
                                     width: 100%;
-                                    .pay_btn{
+
+                                    .pay_btn {
                                         width: 100%;
                                         cursor: pointer;
                                         height: 48px;
@@ -1332,18 +1536,303 @@ $font-monsterat : 'Montserrat';
                                         font-size: 14px;
                                         font-style: normal;
                                         font-weight: 600;
-                                        line-height: 20px; /* 142.857% */
+                                        line-height: 20px;
+                                        /* 142.857% */
                                         letter-spacing: 0.07px;
                                         font-family: $font-monsterat;
                                         color: $white;
                                         background-color: #00A9BB;
                                         border: none;
-                                        &:focus:not(:focus-visible){
+
+                                        &:focus:not(:focus-visible) {
                                             outline: none;
                                         }
-                                        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), -7px -7px 7px 0px #FFF;
+
+                                        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+                                        -7px -7px 7px 0px #FFF;
                                     }
                                 }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width:992px) {
+    .signUp_wrapper {
+        .main_container {
+            .content_wrapper {
+                .stepper_container {
+                    ul {
+                        li {
+                            .text {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+                &.create_account, &.email_verify, &.registration{
+                    max-width: 700px;
+                }
+                &.subscriptionPlan{
+                    .subscriptionPlanPage_wrapper{
+                        .body_container{
+                            .MuiBox-root{
+                                .tabcontent_container{
+                                    .MuiBox-root{
+                                    .planCard_flexBox{
+                                        flex-wrap: wrap;
+                                        row-gap: 20px;
+                                        .planCard_container{
+                                            width: calc(50% - 16px);
+                                        }
+                                    }
+                                }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:767px) {
+    .signUp_wrapper {
+        .header{
+            padding: 0 16px;
+            .right_action{
+                transition: all .5s ease-in-out;
+                .closeBtn{
+                    display: inline-block;
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                }
+                position: fixed;
+                // left: 100%;
+                height: 100%;
+                background-color: $white;
+                @include flexbox();
+                flex-direction: column;
+                padding: 100px 16px 16px 16px;
+                width: 100%;
+                top: 0;
+                right: -100%;
+                box-shadow: 4px 0px 4px 0px rgba(0, 0, 0, 0.25) inset;
+                &.show{
+                    right: 0;
+                    left: auto;
+                    .dont_account{
+                        margin: 0 0 20px 0px;
+                    }
+                }
+            }
+            .burgerMenuBtn{
+             
+                border: none;
+                background-color: transparent;
+                width: 40px;
+                height:30px;
+                display: grid;
+                row-gap: 2px;
+                .seperator{
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: $black;
+                }
+
+            }
+        }
+        .main_container {
+            .content_wrapper {
+
+
+                &.create_account, &.email_verify, &.registration, &.paymentMethod {
+                    max-width: initial;
+                    width: 90%;
+                    padding: 32px 16px;
+                }
+                &.subscriptionPlan{
+                    padding: 32px 16px;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width:599px) {
+    .signUp_wrapper {
+        .main_container {
+            .content_wrapper {
+                .stepper_container {
+                    ul {
+                        li {
+                            .text {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+
+                &.create_account {
+                    max-width: initial;
+                    width: 90%;
+                    padding: 32px 16px;
+
+                    .creatAccountForm_wrapper {
+                        .form_container {
+                            max-width: initial;
+                            .page_title{
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+                &.email_verify{
+                    .emailverifyPage_wrapper{
+                        max-width: initial;
+                        .title{
+                            font-size: 20px;
+                        }
+                        .body_container{
+                            .otp_verify_title{
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+                &.registration{
+                    .registrationPage_wrapper{
+                        .title{
+                            font-size: 20px;
+                        }
+                        .body_container{
+                            .grid_box{
+                                flex-wrap: wrap;
+                                .input_flexBox, .select_flexBox {
+                                    width: calc(100% - 20px);
+                                }
+                                .select_flexbox{
+                                    flex-wrap: wrap;
+                                    margin: 0 10px;
+                                    width: 100%;
+                                    .dropdown{
+                                        width: calc(100% - 0px);
+                                        margin: 0 0 36px 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &.subscriptionPlan{
+                    .subscriptionPlanPage_wrapper{
+                        .body_container{
+                            .MuiBox-root{
+                                .tabcontent_container{
+                                    .MuiBox-root{
+                                    .planCard_flexBox{
+                                        .planCard_container{
+                                            width: calc(100% - 16px);
+                                        }
+                                    }
+                                }
+                                }
+                            }
+                        }
+                    }
+                }
+                &.paymentMethod{
+                    .paymentMethodPage_wrapper{
+                        .title{
+                            font-size: 20px;
+                        }
+                        .body_container{
+                            .form_container{
+                                max-width: initial;
+                            }
+                        }
+                      
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:576px) {
+    .signUp_wrapper {
+        .main_container {
+            .content_wrapper {
+                .stepper_container {
+                    ul {
+                        li {
+                            .text {
+                                font-size: 10px;
+                            }
+
+                            .index {
+                                width: 24px;
+                                height: 24px;
+                            }
+
+                            &::after {
+                                left: calc(50% + 14px);
+                                top: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:479px) {
+    .signUp_wrapper {
+        .main_container {
+            .content_wrapper {
+                .stepper_container {
+                    ul {
+                        li {
+                            .text {
+                                font-size: 7px;
+                            }
+                            .index{
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+                &.paymentMethod{
+                    .paymentMethodPage_wrapper{
+                        .body_container{
+                            .form_container{
+                                form{
+                                    .input_box{
+                                        &.grid_box{
+                                            flex-wrap: wrap;
+                                            width: 100%;
+                                            margin-left: 0;
+                                            margin-right: 0;
+                                            row-gap: 20px;
+                                            .flex_item{
+                                                width: calc(100% - 0px);
+                                                margin: 0;
+                                            }
+                                        }
+                                    }
+                                }
+                                
                             }
                         }
                       

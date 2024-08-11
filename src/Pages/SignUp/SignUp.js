@@ -66,6 +66,15 @@ function SignUp(props) {
         setStepperState([...stepperState, index])
     }
 
+    function handleDrawer(){
+        if(document.querySelector("#right_action.show")){
+            document.querySelector("#right_action.show").classList.remove("show") 
+        }else{
+            document.querySelector("#right_action").classList.add("show")
+        }
+        
+    }
+
     useEffect(() => {
         document.scrollingElement.scrollTop = 0
     }) 
@@ -73,15 +82,23 @@ function SignUp(props) {
         <React.Fragment>
             <div className='signUp_wrapper'>
                 <div className='header'>
-                    <div className='left_logoBlock'>
+                    <div className='left_logoBlock' onClick={() => {
+                        navigate("/")
+                    }}>
                         <img src={FogoLogo} alt="fogo_logo"></img>
                     </div>
-                    <div className='right_action'>
+                    <div className='right_action' id="right_action">
+                        <span className='closeBtn'onClick={() => handleDrawer()}>x</span>
                         <span className='dont_account'>{locales.already_have_account}</span>
                         <button className='signup_btn' onClick={() => {
                             navigate("/SignIn")
                         }}>{locales.signIn}</button>
                     </div>
+                    <button className='burgerMenuBtn' onClick={() => handleDrawer()}>
+                        <span className='seperator'></span>
+                        <span className='seperator'></span>
+                        <span className='seperator'></span>
+                    </button>
                 </div>
                 <div className='main_container'>
                     <div className={`content_wrapper 

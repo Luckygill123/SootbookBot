@@ -441,3 +441,44 @@ $font-monsterat : 'Montserrat';
         }
     }
 } 
+
+@media screen and (max-width:576px) {
+    .MuiDialog-root{
+        &.resetPassModal_container{
+            .MuiDialog-container{
+                .MuiDialog-paper{
+                    margin: 15px;
+                    .modal_container{
+                        padding: 32px;
+                        .modal_head, .modal_Body{
+                            max-width: initial;
+                        }
+                        .modal_head{
+                            .title{
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.createNew_passwordModal_container {
+            .MuiDialog-container{
+                .MuiDialog-paper{
+                    margin: 15px;
+                    .modal_container{
+                        padding: 32px;
+                        .modal_head{
+                            .title{
+                                font-size: 20px;
+                            }
+                        }
+                        .modal_head, .modal_Body{
+                            max-width: initial;
+                        }
+                    }
+                }
+            }  
+        }
+    }   
+}

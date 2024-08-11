@@ -11,6 +11,7 @@ import Blog from './Pages/Blog/Blog';
 import ContactUs from './Pages/Contactus/Contactus';
 import JobSingle from './Pages/JobSingle/JobSingle';
 import Article from './Pages/Article/Article';
+import POS from './Pages/POS/POS';
 
 const routes = [
   {
@@ -160,6 +161,18 @@ const routes = [
   {
     path: "/Article",
     element: <Article />,
+    loader: '',
+    children: [
+      // {
+      //   path: "team",
+      //   element: <Team />,
+      //   loader: teamLoader,
+      // },
+    ],
+  },
+  {
+    path: "/POS",
+    element: <POS />,
     loader: '',
     children: [
       // {

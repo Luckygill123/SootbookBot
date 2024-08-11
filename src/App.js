@@ -39,6 +39,7 @@ function App() {
       case '/Contactus':
       case '/JobSingle':
       case '/Article':
+      case '/POS':
         return headerMenuVisibility = true;
         break;
       default:
@@ -61,6 +62,7 @@ function App() {
       case '/Contactus':
       case '/JobSingle':
       case '/Article':
+      case '/POS':
         return footerVisibility = true;
         break;
       default:
