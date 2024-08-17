@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Link, } from "react-router-dom";
-import locales from "../../Constants/contant.json";
+import locales from "../../Constants/en.json";
 import Banner from "../../assets/images/jobsingle_page_banner.png";
 import { ReactComponent as Usercog } from "../../assets/images/user-cog.svg";
 import Upload from "../../assets/images/upload.svg";

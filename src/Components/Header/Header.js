@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import locales from "../../Constants/contant.json";
+import locales from "../../Constants/en.json";
 import FogoLogo from '../../assets/images/logo_fogo.svg';
 import {
     Routes, Route, Link,

@@ -287,7 +287,13 @@ $font-monsterat : 'Montserrat';
                                     letter-spacing: 0.07px;
                                 }
                             }
-
+                            .error{
+                                display: inline-block;
+                                font-size: 12px;
+                                color: #EF4444;
+                                margin-top: 5px;
+                                font-family: $font-monsterat;
+                            }
                             .text_input {
                                 position: relative;
                                 z-index: 1;
@@ -431,6 +437,11 @@ $font-monsterat : 'Montserrat';
 
                                 box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
                                 -7px -7px 7px 0px #FFF;
+                                &.disabled{
+                                    cursor: not-allowed;
+                                    background-color: #ccc;
+                                    color: $black;
+                                }
                             }
                         }
                     }
@@ -680,7 +691,7 @@ $font-monsterat : 'Montserrat';
                                     /* 142.857% */
                                     letter-spacing: 0.07px;
                                     font-family: $font-monsterat;
-                                    color: $text;
+                                    color: #7D7D7D;
                                     width: 100%;
                                     background-color: #f2f5fa;
 
@@ -809,7 +820,7 @@ $font-monsterat : 'Montserrat';
                             align-items: flex-start;
                             flex-direction: column;
 
-                            >label {
+                            >.label {
                                 margin-bottom: 10px;
                                 display: inline-block;
                                 font-size: 14px;
@@ -844,7 +855,7 @@ $font-monsterat : 'Montserrat';
                                 position: relative;
                                 border-radius: 12px;
                                 border: 1px dashed #E5E7EB;
-
+                                
                                 .content {
                                     position: absolute;
                                     left: 50%;
@@ -883,6 +894,16 @@ $font-monsterat : 'Montserrat';
                                         font-family: $font-monsterat;
                                         color: #9CA3AF;
                                     }
+                                }
+                                .fileUploader {
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0;
+                                    z-index:1;
+                                    width: 100%;
+                                    height: 100%;
+                                    opacity: 0;
+                                    max-width: initial;
                                 }
                             }
                         }
@@ -1008,6 +1029,11 @@ $font-monsterat : 'Montserrat';
 
                                 box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
                                 -7px -7px 7px 0px #FFF;
+                                &:disabled{
+                                    background-color: #ddd;
+                                    color: $black;
+                                    cursor: not-allowed;
+                                }
                             }
                         }
                     }

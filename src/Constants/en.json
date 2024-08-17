@@ -41,6 +41,7 @@
     "send_label" : "Send",
     "Job_details_title" :"Job details",
     "share_title": "Share",
-    "submit_title" :"Submit"
+    "submit_title" :"Submit",
+    "success_otp_message" :"OTP is valid"
 
 }

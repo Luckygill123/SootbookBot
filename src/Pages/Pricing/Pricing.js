@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import locales from "../../Constants/contant.json";
+import locales from "../../Constants/en.json";
 import Banner from "../../assets/images/pricing_page_banner.png";
 import PlanPricing from '../../Components/PlanPricing/PlanPricing';
 import FAQS from '../../Components/FAQS/FAQS';

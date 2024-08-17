@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import locales from "../../Constants/contant.json";
+import locales from "../../Constants/en.json";
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import locales from "../../Constants/contant.json";
+import locales from "../../Constants/en.json";
 import RatingViews from '../../Components/RatingViews/RatingViews';
 import OurPartners from '../../Components/OurPartners/OurPartners';
 import FeedbackForm from '../../Components/FeedbackForm/FeedbackForm';

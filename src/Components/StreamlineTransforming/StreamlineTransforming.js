@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import locales from "../../Constants/contant.json";
+import locales from "../../Constants/en.json";
 import { ReactComponent as RightArrow } from '../../assets/images/chevron-right.svg';
 import './StreamlineTransforming.scss'
 

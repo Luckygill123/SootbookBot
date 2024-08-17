@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import locales from "../../Constants/contant.json";
+import locales from "../../Constants/en.json";
 import { Link,} from "react-router-dom";
 import Banner from "../../assets/images/product_page_banner.png";
 import { ReactComponent as RightArrow } from "../../assets/images/chevron-right.svg";

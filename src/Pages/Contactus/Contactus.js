@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import locales from "../../Constants/contant.json";
+import locales from "../../Constants/en.json";
 import { Link, } from "react-router-dom";
 import Banner from "../../assets/images/contactus_banner.png";
 import Map from "../../assets/images/map-pin_new.svg";

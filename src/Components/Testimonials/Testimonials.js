@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import locales from "../../Constants/contant.json";
+import locales from "../../Constants/en.json";
 import './Testimonials.scss';
 // import Swiper JS
 import Swiper from 'swiper';

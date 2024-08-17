@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import locales from "../../Constants/contant.json";
+import locales from "../../Constants/en.json";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Radio from '@mui/material/Radio';
@@ -119,7 +119,7 @@ function SubscriptionPlanPage(props){
                                         }
                                     </ul>
                                     <div className='action'>
-                                        <button className='buyBtn' onClick={() => props.paymethod()}>{locales.buy_now_label}</button>
+                                        <button className='buyBtn' onClick={() => props.paymethod(item.price)}>{locales.buy_now_label}</button>
                                     </div>
                                 </div>
                             )

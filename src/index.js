@@ -3,21 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {configureStore} from "@reduxjs/toolkit";
 import { Provider } from 'react-redux';
-import AdminDashboard from './Pages/AdminDashboard/AdminDashboard';
-import SignIn from './Pages/SignIn/SignIn';
-import SignUp from './Pages/SignUp/SignUp';
 import { BrowserRouter } from "react-router-dom";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import store from './Store';
 
 
-const store = configureStore({
-  reducer : {}
-})
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import locales from "../../Constants/contant.json";
+import locales from "../../Constants/en.json";
 import FogoLogo from '../../assets/images/logo_fogo.svg';
 import User from "../../assets/images/user-2.svg";
 import { ReactComponent as UserCog } from "../../assets/images/user-cog.svg";

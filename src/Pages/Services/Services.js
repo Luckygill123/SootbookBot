@@ -18,7 +18,7 @@ import Testimonials from '../../Components/Testimonials/Testimonials';
 import PlanPricing from '../../Components/PlanPricing/PlanPricing';
 import NeedConsultBanner from "../../assets/images/need_consultant_banner.png"
 import FAQS from '../../Components/FAQS/FAQS';
-import locales from "../../Constants/contant.json";
+import locales from "../../Constants/en.json";
 import './Services.scss'
 
 function Services() {
