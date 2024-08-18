@@ -140,7 +140,7 @@ function SignUp(props) {
                             </ul>
                         </div>
                         {
-                            createAccount  && (
+                            createAccount && data && (
                                 <CreatAccountPage countryDataList={data} emailVerifyPage={() => handleEmailverifyPage(2)} />
                             )
                         }
