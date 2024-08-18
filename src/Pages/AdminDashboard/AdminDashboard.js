@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import AdminSideNav from "../../Components/Admin/AdminSideNav/AdminSideNav";
 import AdminContentWrapper from"../../Components/Admin/AdminContentWrapper/AdminContentWrapper";
 // import {withRouter} from 'react-router'
@@ -12,6 +12,10 @@ function AdminDashboard(props){
         setExpandView(!expandView)
     }
 
+    useEffect(() => {
+        document.scrollingElement.scrollTop = 0;
+
+    }, [])
 return(
     <React.Fragment>
         <div className='admin_dashboardWrapper'>
