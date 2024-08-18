@@ -2,12 +2,12 @@ import * as constants from "../Constants/constant";
 import axios from "axios";
 
 
-export const CountryList = () => {
+export const CountryIndustryList = () => {
     const {apiUrl, port} = constants;
 
-    const CountryListUrl = `${apiUrl}:${port}/api/admin/country/list`
+    const CountryListUrl = `${apiUrl}:${port}/api/admin/vendor/listRegistration`
     return axios (CountryListUrl, {
-        method:"POST",
+        method:"GET",
         headers: {
             "Content-Type" :"application/json",
             "x-via-device":true

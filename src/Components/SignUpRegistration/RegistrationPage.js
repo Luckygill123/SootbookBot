@@ -10,8 +10,6 @@ import FormGroup from '@mui/material/FormGroup';
 import Checkbox from '@mui/material/Checkbox';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { useSelector, useDispatch } from 'react-redux';
-import { IndustryList } from '../../services/Industrylist.service';
-import { setData, addData } from '../../Slices/IndustryListSlice';
 import { FileUploader } from "react-drag-drop-files";
 import { Registration } from '../../services/Registration.service';
 
@@ -20,114 +18,78 @@ function RegistrationPage(props) {
     const data = useSelector((state) => state);
     const [file, setFile] = useState(null);
     const dispatch = useDispatch();
-    const [countryselectedData, setCountrySelectedData] = useState('');
-    const [industryselectedData, setIndustrySelectedData] = useState('');
-    const [companyTypeData, setCompanyTypeData] = useState('');
-    const [address, setAddress] = useState("")
-    const [companyname, setCompanyname] = useState('');
-    const [employeeNumber, setEmployeeNumber] = useState("");
-    const [vat, setVat] = useState("");
-    const [tin, setTin] = useState("");
-    const [heardValue, setHeardValue] = useState("");
     const [multibranch, setMultiBranch] = useState("");
-    const [subscribeNews, setSubscribeNews] = useState(false);
-    const [termscondition, setTermscondition] =  useState(false);
+    const [newdata, setNewData] = useState({
+        companyname: "",
+        industryselectedData: "",
+        companyTypeData: "",
+        countryselectedData: "",
+        address: "",
+        tin: "",
+        vat: "",
+        employeeNumber: "",
+        heardValue: "",
+        multibranch: "",
+        termscondition: false,
+        subscribeNews: false
 
-    const handleChange = (event) => {
-        setCountrySelectedData(event.target.value);
+    })
+
+
+    const handleChange = (e) => {
+        const { name, value, checked } = e.target;
+        if (e.target.name == "termscondition" || e.target.name == "subscribeNews") {
+            setNewData((prevState) => ({
+                ...prevState,
+                [name]: checked
+            }))
+
+        } else {
+            setNewData((prevState) => ({
+                ...prevState,
+                [name]: value
+            }))
+        }
+
     };
 
-    const handleindustryChange = (event) => {
-        setIndustrySelectedData(event.target.value)
-    }
-
-    const handleIndustryList = () => {
-        IndustryList().then((response) => {
-            if (response && response.data) {
-                dispatch(addData(response.data));
-            }
-
-        })
-    }
 
     const handlefileChange = (file) => {
         setFile(file);
     };
 
-    const handlecompanyname = (e) => {
-        setCompanyname(e.target.value)
-    }
-
-    const handleCompanyType = (e) => {
-        setCompanyTypeData(e.target.value)
-    }
-
-    const handleaddress = (e) => {
-        setAddress(e.target.value)
-    }
-
-    const handleEmpNumber = (e) => {
-        setEmployeeNumber(e.target.value)
-    }
-
-    const handleVat = (e) => {
-        setVat(e.target.value)
-    }
-
-    const handleTin = (e) => {
-        setTin(e.target.value)
-    }
-
-    const handleheard = (e) => {
-        setHeardValue(e.target.value)
-    }
-
-    const handleMultiBranch = (event) => {
-        setMultiBranch(event.target.value);
-      };
-
-      const handlesubscribeNews = (e) => {
-        setSubscribeNews(e.target.checked)
-      }
-
-      const handletermcondition = (e) => {
-        setTermscondition(e.target.checked)
-      }
-
-      const handleRegistration = () => {
+    const handleRegistration = () => {
         const userid = JSON.parse(localStorage.getItem('profileData')).vendor._id;
         const formData = {
             userid: userid,
-            companyname : companyname,
-            industryselectedData : industryselectedData,
-            companyTypeData : companyTypeData, 
-            countryselectedData : countryselectedData, 
-            address : address, 
-            tin :tin, 
-            vat : vat, 
-            file : file, 
-            employeeNumber :employeeNumber,
-            heardValue : heardValue, 
-            multibranch : multibranch, 
-            subscribeNews : subscribeNews
+            companyname: newdata.companyname,
+            industryselectedData: newdata.industryselectedData,
+            companyTypeData: newdata.companyTypeData,
+            countryselectedData: newdata.countryselectedData,
+            address: newdata.address,
+            tin: newdata.tin,
+            vat: newdata.vat,
+            file: file,
+            employeeNumber: newdata.employeeNumber,
+            heardValue: newdata.heardValue,
+            multibranch: newdata.multibranch,
+            subscribeNews: newdata.subscribeNews
         }
         Registration(formData).then((response) => {
-            console.log("registration--", response);
-            if(response && response.data){
+            if (response && response.data) {
                 window.localStorage.setItem('profileData', JSON.stringify(response.data));
                 props.continueSubscription()
             }
         })
-       
 
-      }
+
+    }
     useEffect(() => {
         document.scrollingElement.scrollTop = 0;
-        handleIndustryList()
 
     }, [])
 
-    console.log("form--", companyname,industryselectedData, companyTypeData, countryselectedData, address, tin, vat, file, employeeNumber, heardValue, multibranch, subscribeNews)
+
     return (
         <React.Fragment>
             <div className='registrationPage_wrapper'>
@@ -136,7 +98,7 @@ function RegistrationPage(props) {
                     <div className='grid_box'>
                         <div className='input_flexBox'>
                             <label>Company Name</label>
-                            <input type='text' className='input_text' value={companyname} onChange={handlecompanyname}></input>
+                            <input type='text' className='input_text' value={newdata.companyname} name="companyname" onChange={handleChange}></input>
                         </div>
                         <div className='select_flexBox industry_selectBox'>
                             <label>Industry</label>
@@ -144,14 +106,15 @@ function RegistrationPage(props) {
                                 className="industry_select"
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
-                                value={industryselectedData}
+                                value={newdata.industryselectedData}
                                 label="Age"
-                                onChange={handleindustryChange}
+                                onChange={handleChange}
+                                name="industryselectedData"
                             >
                                 {
-                                    data?.industryList?.data?.industry &&
-                                    data?.industryList?.data?.industry.length > 0 &&
-                                    data?.industryList?.data?.industry.map((item, index) => {
+                                    data?.countryIndustrylist?.data?.industry &&
+                                    data?.countryIndustrylist?.data?.industry.length > 0 &&
+                                    data?.countryIndustrylist?.data?.industry.map((item, index) => {
                                         return (
                                             <MenuItem key={index} value={item._id}>{item.name}</MenuItem>
                                         )
@@ -168,9 +131,10 @@ function RegistrationPage(props) {
                                 className="industry_select"
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
-                                value={companyTypeData}
+                                value={newdata.companyTypeData}
                                 label="Age"
-                                onChange={handleCompanyType}
+                                onChange={handleChange}
+                                name="companyTypeData"
                             >
                                 <MenuItem value={"Pharma Chemist"}>Pharma Chemist</MenuItem>
                                 <MenuItem value={"Medical"}>Medical</MenuItem>
@@ -185,14 +149,15 @@ function RegistrationPage(props) {
                                 className="country_select"
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
-                                value={countryselectedData}
+                                value={newdata.countryselectedData}
                                 label="Age"
                                 onChange={handleChange}
+                                name="countryselectedData"
                             >
                                 {
-                                    data?.countrylist.data &&
-                                    data?.countrylist.data.country &&
-                                    data?.countrylist.data.country.map((item, index) => {
+                                    data?.countryIndustrylist.data &&
+                                    data?.countryIndustrylist.data.country &&
+                                    data?.countryIndustrylist.data.country.map((item, index) => {
                                         return <MenuItem key={index} name={item.name} value={item._id}>{item.name}</MenuItem>
                                     })
                                 }
@@ -200,17 +165,17 @@ function RegistrationPage(props) {
                         </div>
                         <div className='input_flexBox'>
                             <label>Address</label>
-                            <input type='text' className='input_text' value={address} onChange={handleaddress}></input>
+                            <input type='text' className='input_text' value={newdata.address} name="address" onChange={handleChange}></input>
                         </div>
                     </div>
                     <div className='grid_box'>
                         <div className='input_flexBox'>
                             <label>TIN</label>
-                            <input type='text' className='input_text' value={tin} onChange={handleTin}></input>
+                            <input type='text' className='input_text' value={newdata.tin} name="tin" onChange={handleChange}></input>
                         </div>
                         <div className='input_flexBox'>
                             <label>VAT</label>
-                            <input type='text' className='input_text' value={vat} onChange={handleVat}></input>
+                            <input type='text' className='input_text' value={newdata.vat} name="vat" onChange={handleChange}></input>
                         </div>
                     </div>
                     <div className='dropbox_container'>
@@ -232,9 +197,10 @@ function RegistrationPage(props) {
                                     className="country_select"
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
-                                    value={employeeNumber}
+                                    value={newdata.employeeNumber}
                                     label="Age"
-                                    onChange={handleEmpNumber}
+                                    onChange={handleChange}
+                                    name="employeeNumber"
                                 >
                                     <MenuItem value={1 - 10}>1-10</MenuItem>
                                     <MenuItem value={11 - 50}>11-50</MenuItem>
@@ -247,9 +213,10 @@ function RegistrationPage(props) {
                                     className="country_select"
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
-                                    value={heardValue}
+                                    value={newdata.heardValue}
                                     label="Age"
-                                    onChange={handleheard}
+                                    onChange={handleChange}
+                                    name="heardValue"
                                 >
                                     <MenuItem value={'From friends'}>From friends</MenuItem>
                                     <MenuItem value={"From pharmacies"}>From pharmacies</MenuItem>
@@ -267,43 +234,43 @@ function RegistrationPage(props) {
                                         aria-labelledby="demo-radio-buttons-group-label"
                                         defaultValue="female"
                                         name="radio-buttons-group"
-                                        value={multibranch}
-                                        onChange={handleMultiBranch}
+                                        value={newdata.multibranch}
+                                        onChange={handleChange}
                                     >
-                                        <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                                        <FormControlLabel value="No" control={<Radio />} label="No" />
+                                        <FormControlLabel value="Yes" control={<Radio name="multibranch" />} label="Yes" />
+                                        <FormControlLabel value="No" control={<Radio name="multibranch" />} label="No" />
 
                                     </RadioGroup>
                                 </FormControl>
                             </li>
                             <li>
                                 <FormGroup className='checkBox_block'>
-                                    <FormControlLabel control={<Checkbox checked={termscondition} onChange={handletermcondition}/>} label="By creating the account you agree terms and conditions" />
+                                    <FormControlLabel control={<Checkbox checked={newdata.termscondition} name="termscondition" onChange={handleChange} />} label="By creating the account you agree terms and conditions" />
                                 </FormGroup>
                             </li>
                             <li>
                                 <FormGroup className='checkBox_block'>
-                                    <FormControlLabel control={<Checkbox checked={subscribeNews} onChange={handlesubscribeNews} />} label="Subscribe me to the newsletter" />
+                                    <FormControlLabel control={<Checkbox checked={newdata.subscribeNews} name="subscribeNews" onChange={handleChange} />} label="Subscribe me to the newsletter" />
                                 </FormGroup>
                             </li>
                         </ul>
                     </div>
                     <div className='action'>
-                        <button className='next_btn' 
-                        disabled={
-                            (companyname!== "" &&
-                            industryselectedData!=="" &&
-                            companyTypeData!=="" &&
-                            countryselectedData!=="" &&
-                            address!=="" &&
-                            tin!=="" &&
-                            vat!=="" &&
-                            file!=="" &&
-                            employeeNumber!=="" &&
-                            heardValue!=="" &&
-                            multibranch!=="" ) ? false: true 
-                        }
-                        onClick={() => handleRegistration()}>{locales.continue_to_subscription}</button>
+                        <button className='next_btn'
+                            disabled={
+                                (newdata.companyname !== "" &&
+                                    newdata.industryselectedData !== "" &&
+                                    newdata.companyTypeData !== "" &&
+                                    newdata.countryselectedData !== "" &&
+                                    newdata.address !== "" &&
+                                    newdata.tin !== "" &&
+                                    newdata.vat !== "" &&
+                                    file !== "" &&
+                                    newdata.employeeNumber !== "" &&
+                                    newdata.heardValue !== "" &&
+                                    newdata.multibranch !== "") ? false : true
+                            }
+                            onClick={() => handleRegistration()}>{locales.continue_to_subscription}</button>
                     </div>
                 </div>
             </div>

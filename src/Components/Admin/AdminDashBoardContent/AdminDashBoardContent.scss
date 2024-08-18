@@ -667,10 +667,12 @@ $font-monsterat : 'Montserrat';
                                                     .arrow_up{
                                                         transform: rotate(-90deg);
                                                         display: inline-block;
+                                                        cursor: pointer;
                                                     }
                                                     .arrow_down{
                                                         transform: rotate(90deg);
                                                         display: inline-block;
+                                                        cursor: pointer;
                                                     }
                                                 }
                                                 &::after{
@@ -697,7 +699,7 @@ $font-monsterat : 'Montserrat';
                                                         width: auto;
                                                         height: 100%;
                                                         right: 8px;
-                                                        z-index: 1;
+                                                        z-index: 2;
                                                         padding: 4px 0px;
                                                         justify-content: space-between;
                                                         .arrow_up, .arrow_down{
@@ -710,6 +712,7 @@ $font-monsterat : 'Montserrat';
                                                            background-color: $white; 
                                                            svg{
                                                             height:8px;
+                                                            margin-right: -1px;
                                                             path{
                                                                 stroke: rgb( 34, 229, 145) !important;
                                                             }

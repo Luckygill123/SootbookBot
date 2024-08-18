@@ -1,4 +1,5 @@
 import AdminDashboard from './Pages/AdminDashboard/AdminDashboard';
+import AdminDashboardParent from './Pages/AdminDashboard/AdminDashboard.parent';
 import SignIn from './Pages/SignIn/SignIn';
 import SignUp from './Pages/SignUp/SignUp';
 import Homepage from "./Pages/Home/Home";
@@ -52,7 +53,7 @@ const routes = [
   },
   {
     path: "/dashBoard",
-    element: <AdminDashboard />,
+    element: <AdminDashboardParent />,
     loader: '',
     children: [
       // {

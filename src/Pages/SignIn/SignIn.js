@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useRef } from 'react';
 import locales from "../../Constants/en.json";
 import FogoLogo from '../../assets/images/logo_fogo.svg';
 import GoogleIcon from "../../assets/images/google_logo.svg";
@@ -7,15 +7,28 @@ import ResetPasswordModal from '../../Components/Modals/ResetPasswordModal';
 import CreateNewPasswordModal from '../../Components/Modals/CreateNewPasswordModal';
 import EmailVerificationModal from '../../Components/Modals/EmailVerificationModal';
 import { Link, useNavigate } from "react-router-dom";
+import { loginService } from '../../services/login.service';
+import { setData, addData } from '../../Slices/LoginServiceSlices';
+import { useSelector, useDispatch } from 'react-redux';
+import CrossImg from "../../assets/images/x-circle.svg"
 import "./SignIn.scss";
 
 
 function SignIn(props) {
+    const data = useSelector((state) => state);
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const [signInView, setSignInView] = useState(true);
     const [createPassState, setCreatePassState] = useState(false);
     const [emailVerify, setEmailVerify] = useState(false);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [isValid, setIsValid] = useState(true);
+    const [accountnoexist, setAccountNoExist] = useState(false);
+    const inputRef = useRef(null);
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     function handlecloseState() {
         setOpen(false);
@@ -41,9 +54,47 @@ function SignIn(props) {
 
     }
 
+    const handleEmail = (e) => {
+        const inputEmail = e.target.value;
+        setEmail(inputEmail);
+    
+        // Check if the email is valid
+        setIsValid(emailRegex.test(inputEmail));
+      };
+
+      const handleTogglePass = () => {
+        if(inputRef.current.type == 'password'){
+            inputRef.current.type = 'text'
+        }else{
+            inputRef.current.type = 'password'
+        }
+      }
+
+      const handlePassword = (e) => {
+        setPassword(e.target.value)
+      }
+
+
+      const handleSignIn = () => {
+        const data = {
+            emailData:email,
+            passwordData:password
+        }
+        loginService(data).then((response) => {
+            if(response && response.status == true){
+                localStorage.setItem("accessToken", response.data.token)
+                dispatch(addData(response.data));
+                navigate("/dashboard")
+            }else{
+                setAccountNoExist(true)
+            }
+
+        })
+      }
+
     useEffect(() => {
         document.scrollingElement.scrollTop = 0
-    })
+    } , [])
     return (
         <React.Fragment>
             <div className='signIn_wrapper'>
@@ -85,25 +136,29 @@ function SignIn(props) {
                                 <span className='or_seperator'>
                                     <span className='text'>or</span>
                                 </span>
-                                <form className='form_container'>
+                                <div className='form_container'>
                                     <div className='username_fielbox'>
                                         <label for="email_input">{locales.email_label}</label>
 
-                                        <input type='text' className='email_input' id="email_input" placeholder='you@example.com'></input>
-
+                                        <input type='text' className='email_input' id="email_input" placeholder='you@example.com' value={email} onChange={handleEmail}></input>
+                                        {isValid == false ? <span className='error'>Invalid Email</span> : ""}
                                     </div>
                                     <div className='password_fielbox'>
                                         <label for="password_input">{locales.password_label}</label>
                                         <div className='flexBox'>
-                                            <input type='password' className='password_input' id="password_input"></input>
-                                            <span className='eye_icon'>
+                                            <input type='password' ref={inputRef} className='password_input' id="password_input" value={password} onChange={handlePassword}></input>
+                                            <span className='eye_icon' onClick={handleTogglePass}>
                                                 <img src={EyeOff} alt='eye_off_icon'></img>
                                             </span>
                                         </div>
                                         <span className='pass_length_msg'>{locales.pass_length_msg}</span>
                                     </div>
                                     <div className='submit_action'>
-                                        <button className='submitBtn'>{locales.signIn}</button>
+                                        <button className='submitBtn' disabled={
+                                            (email!=="" &&
+                                                password!==""
+                                            )? false: true
+                                        } onClick={handleSignIn}>{locales.signIn}</button>
                                     </div>
                                     <div className='forgot_pass_action'>
                                         <span className='link' onClick={() => {
@@ -111,13 +166,26 @@ function SignIn(props) {
                                             setOpen(true)
                                         }}>{locales.forgot_password}</span>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         )
                     }
                 </div>
             </div>
 
+{
+    accountnoexist && (
+        <div className='account_notExist_page'>
+            <div className='account_notExist_Modal'>
+                <div className='icon_block'>
+                    <img src={CrossImg}  alt="icon" className='cross_img'></img>
+                </div>
+                <h5 className='title'>{locales.account_notExist}</h5>
+                <button className='signup_btn' onClick={() => navigate("/SignUp")}>{locales.signUp}</button>
+            </div>
+        </div>
+    )
+}
 
             {open && (
                 <ResetPasswordModal

@@ -5,6 +5,7 @@ import { Otpverification } from '../../services/Otpverfication.service';
 
 function EmailVerifyPage(props) {
 
+    const maxLength = 6;
     const [otp, setOtp] = useState('');
 
     const handleotpVerify = () => {
@@ -42,7 +43,7 @@ function EmailVerifyPage(props) {
                         </div>
                     </div>
                     <div className='action'>
-                        <button className='next_btn' onClick={() => {
+                        <button className='next_btn' disabled={otp.length!==maxLength? true:false} onClick={() => {
                             handleotpVerify()
                             }}>{locales.continue_to_registration}</button>
                     </div>

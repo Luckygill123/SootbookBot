@@ -7,14 +7,14 @@ import EmailVerifyPage from '../../Components/SignUpRegistration/EmailVerificati
 import RegistrationPage from '../../Components/SignUpRegistration/RegistrationPage';
 import SubscriptionPlanPage from '../../Components/SignUpRegistration/SubscriptionPlanPage';
 import PaymentMethodPage from '../../Components/SignUpRegistration/PaymentMethod';
-import { CountryList } from '../../services/Countrylist.sevice';
-import { setData, addData } from '../../Slices/CountryListSlice';
+import { CountryIndustryList } from '../../services/CountryIndustrylist.sevice';
+import { setData, addData } from '../../Slices/CountryIndusrylistSlices';
 import { useSelector, useDispatch } from 'react-redux';
 import './SignUp.scss';
 
 
 function SignUp(props) {
-    const data = useSelector((state) => state?.countrylist?.data.country);
+    const data = useSelector((state) => state?.countryIndustrylist?.data?.country);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [countryData, setCountryData] = useState('');
@@ -83,7 +83,7 @@ function SignUp(props) {
     }
 
     function handleCountryList() {
-        CountryList().then((response) => {
+        CountryIndustryList().then((response) => {
             if (response && response.data) {
                 dispatch(addData(response.data));
                 // setCountryData(response.data)
@@ -140,7 +140,7 @@ function SignUp(props) {
                             </ul>
                         </div>
                         {
-                            createAccount && data && data.length > 0 && (
+                            createAccount  && (
                                 <CreatAccountPage countryDataList={data} emailVerifyPage={() => handleEmailverifyPage(2)} />
                             )
                         }
@@ -156,7 +156,7 @@ function SignUp(props) {
                         }
                         {
                             subscriptionPlan && (
-                                <SubscriptionPlanPage paymethod={(value) => handlePaymentMethod(value, 5)} />
+                                <SubscriptionPlanPage paymethod={(value) => handlePaymentMethod(5,value)} />
                             )
                         }
                         {

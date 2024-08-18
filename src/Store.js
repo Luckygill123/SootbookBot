@@ -1,12 +1,12 @@
 // src/store.js
 import { configureStore } from '@reduxjs/toolkit';
-import countryReducer from './Slices/CountryListSlice';
-import InstryReducer from "./Slices/IndustryListSlice"
+import countryReducer from './Slices/CountryIndusrylistSlices';
+import loginReducer from "./Slices/LoginServiceSlices"
 
 const store = configureStore({
   reducer: {
-    countrylist: countryReducer,
-    industryList:InstryReducer
+    countryIndustrylist: countryReducer,
+    loginData:loginReducer
   },
 });
 

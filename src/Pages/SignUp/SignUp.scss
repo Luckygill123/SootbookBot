@@ -41,15 +41,16 @@ $font-monsterat : 'Montserrat';
         justify-content: space-between;
         box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.03);
         position: fixed;
-        z-index: 2;
+        z-index: 99;
         left: 0;
         top: 0;
         width: 100%;
 
         .right_action {
-            .closeBtn{
+            .closeBtn {
                 display: none;
             }
+
             .dont_account {
                 display: inline-block;
                 margin-right: 36px;
@@ -84,7 +85,8 @@ $font-monsterat : 'Montserrat';
                 }
             }
         }
-        .burgerMenuBtn{
+
+        .burgerMenuBtn {
             display: none;
         }
     }
@@ -287,13 +289,15 @@ $font-monsterat : 'Montserrat';
                                     letter-spacing: 0.07px;
                                 }
                             }
-                            .error{
+
+                            .error {
                                 display: inline-block;
                                 font-size: 12px;
                                 color: #EF4444;
                                 margin-top: 5px;
                                 font-family: $font-monsterat;
                             }
+
                             .text_input {
                                 position: relative;
                                 z-index: 1;
@@ -437,7 +441,8 @@ $font-monsterat : 'Montserrat';
 
                                 box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
                                 -7px -7px 7px 0px #FFF;
-                                &.disabled{
+
+                                &.disabled {
                                     cursor: not-allowed;
                                     background-color: #ccc;
                                     color: $black;
@@ -531,7 +536,7 @@ $font-monsterat : 'Montserrat';
                                 @include flexbox();
                                 margin-bottom: 36px;
 
-                                .input_code {
+                                input {
                                     &:focus:not(:focus-visible) {
                                         outline: none;
                                     }
@@ -541,7 +546,7 @@ $font-monsterat : 'Montserrat';
                                     -7px -7px 7px 0px #FFF inset;
                                     border: 1px solid #E5E7EB;
                                     margin-right: 10px;
-                                    width: 32px;
+                                    width: 32px !important;
                                     height: 40px;
                                     border-radius: 4px;
                                     @include flexbox();
@@ -567,6 +572,7 @@ $font-monsterat : 'Montserrat';
                                         margin-right: 0;
                                     }
                                 }
+
                             }
                         }
 
@@ -593,6 +599,12 @@ $font-monsterat : 'Montserrat';
 
                                 &:focus:not(:focus-visible) {
                                     outline: none;
+                                }
+
+                                &:disabled {
+                                    cursor: not-allowed;
+                                    background-color: #ddd;
+                                    color: $black;
                                 }
                             }
                         }
@@ -698,6 +710,7 @@ $font-monsterat : 'Montserrat';
                                     &::placeholder {
                                         color: #7D7D7D
                                     }
+
                                 }
 
                                 .MuiInputBase-root {
@@ -734,6 +747,18 @@ $font-monsterat : 'Montserrat';
 
                                 }
 
+                            }
+
+                            input:-webkit-autofill,
+                            input:-webkit-autofill:hover,
+                            input:-webkit-autofill:focus,
+                            textarea:-webkit-autofill,
+                            textarea:-webkit-autofill:hover,
+                            textarea:-webkit-autofill:focus,
+                            select:-webkit-autofill,
+                            select:-webkit-autofill:hover,
+                            select:-webkit-autofill:focus {
+                                -webkit-text-fill-color: #7D7D7D;
                             }
 
                             .select_flexbox {
@@ -855,7 +880,7 @@ $font-monsterat : 'Montserrat';
                                 position: relative;
                                 border-radius: 12px;
                                 border: 1px dashed #E5E7EB;
-                                
+
                                 .content {
                                     position: absolute;
                                     left: 50%;
@@ -895,11 +920,12 @@ $font-monsterat : 'Montserrat';
                                         color: #9CA3AF;
                                     }
                                 }
+
                                 .fileUploader {
                                     position: absolute;
                                     left: 0;
                                     top: 0;
-                                    z-index:1;
+                                    z-index: 1;
                                     width: 100%;
                                     height: 100%;
                                     opacity: 0;
@@ -1029,7 +1055,8 @@ $font-monsterat : 'Montserrat';
 
                                 box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
                                 -7px -7px 7px 0px #FFF;
-                                &:disabled{
+
+                                &:disabled {
                                     background-color: #ddd;
                                     color: $black;
                                     cursor: not-allowed;
@@ -1430,157 +1457,268 @@ $font-monsterat : 'Montserrat';
                             margin-right: auto;
                             width: 100%;
 
-                            form {
-                                .input_box {
-                                    margin-bottom: 36px;
-                                    @include flexbox();
-                                    flex-direction: column;
-                                    align-items: flex-start;
-                                    position: relative;
 
-                                    label {
-                                        margin-bottom: 10px;
+                            .input_box {
+                                margin-bottom: 36px;
+                                @include flexbox();
+                                flex-direction: column;
+                                align-items: flex-start;
+                                position: relative;
+
+                                label {
+                                    margin-bottom: 10px;
+                                    display: inline-block;
+                                    font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 700;
+                                    line-height: 20px;
+                                    /* 142.857% */
+                                    letter-spacing: 0.07px;
+                                    color: $text;
+                                    font-family: $font-monsterat;
+                                    position: relative;
+                                    text-align: left;
+
+                                    &::after {
+                                        content: "*";
                                         display: inline-block;
+                                        position: absolute;
+                                        left: calc(100% + 1px);
+                                        top: 0;
+                                        color: #EF4444;
                                         font-size: 14px;
                                         font-style: normal;
                                         font-weight: 700;
                                         line-height: 20px;
-                                        /* 142.857% */
                                         letter-spacing: 0.07px;
-                                        color: $text;
-                                        font-family: $font-monsterat;
-                                        position: relative;
-                                        text-align: left;
-
-                                        &::after {
-                                            content: "*";
-                                            display: inline-block;
-                                            position: absolute;
-                                            left: calc(100% + 1px);
-                                            top: 0;
-                                            color: #EF4444;
-                                            font-size: 14px;
-                                            font-style: normal;
-                                            font-weight: 700;
-                                            line-height: 20px;
-                                            letter-spacing: 0.07px;
-                                        }
                                     }
+                                }
 
+                                .input_text {
+                                    position: relative;
+                                    z-index: 1;
+                                    border-radius: 6px;
+                                    height: 48px;
+                                    // background-color: transparent;
+                                    outline: none;
+                                    padding: 14px 16px;
+                                    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, -7px -7px 7px 0px #FFF inset;
+                                    border: 1px solid #E5E7EB;
+                                    font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: 20px;
+                                    /* 142.857% */
+                                    letter-spacing: 0.07px;
+                                    font-family: $font-monsterat;
+                                    color: #7D7D7D;
+                                    width: 100%;
+                                    background-color: #f2f5fa;
+
+                                    &::placeholder {
+                                        color: #7D7D7D
+                                    }
+                                }
+
+                                input:-webkit-autofill,
+                                input:-webkit-autofill:hover,
+                                input:-webkit-autofill:focus,
+                                textarea:-webkit-autofill,
+                                textarea:-webkit-autofill:hover,
+                                textarea:-webkit-autofill:focus,
+                                select:-webkit-autofill,
+                                select:-webkit-autofill:hover,
+                                select:-webkit-autofill:focus {
+                                    -webkit-text-fill-color: #7D7D7D;
+                                }
+
+                                &.card_number_box {
                                     .input_text {
-                                        position: relative;
+                                        padding: 14px 50px 14px 16px;
+
+                                    }
+
+                                    &::after {
+                                        content: '';
+                                        display: inline-block;
+                                        width: 16px;
+                                        height: 16px;
+                                        background-image: url('../../assets/images/credit-card.svg');
+                                        background-repeat: no-repeat;
+                                        position: absolute;
+                                        right: 16px;
+                                        top: 46px;
+                                        transform: none;
                                         z-index: 1;
-                                        border-radius: 6px;
-                                        height: 48px;
-                                        // background-color: transparent;
-                                        outline: none;
-                                        padding: 14px 16px;
-                                        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, -7px -7px 7px 0px #FFF inset;
-                                        border: 1px solid #E5E7EB;
-                                        font-size: 14px;
-                                        font-style: normal;
-                                        font-weight: 400;
-                                        line-height: 20px;
-                                        /* 142.857% */
-                                        letter-spacing: 0.07px;
-                                        font-family: $font-monsterat;
-                                        color: $text;
-                                        width: 100%;
-                                        background-color: #f2f5fa;
-
-                                        &::placeholder {
-                                            color: #7D7D7D
-                                        }
                                     }
+                                }
 
-                                    &.card_number_box {
-                                        .input_text {
-                                            padding: 14px 50px 14px 16px;
+                                &.grid_box {
+                                    width: 90%;
+                                    flex-direction: row;
+                                    @include flexbox();
+                                    margin-left: -18px;
+                                    margin-right: -18px;
 
-                                        }
-
-                                        &::after {
-                                            content: '';
-                                            display: inline-block;
-                                            width: 16px;
-                                            height: 16px;
-                                            background-image: url('../../assets/images/credit-card.svg');
-                                            background-repeat: no-repeat;
-                                            position: absolute;
-                                            right: 16px;
-                                            top: 46px;
-                                            transform: none;
-                                            z-index: 1;
-                                        }
-                                    }
-
-                                    &.grid_box {
-                                        width: 90%;
-                                        flex-direction: row;
+                                    .flex_item {
+                                        width: calc(50% - 36px);
+                                        margin: 0 18px;
+                                        position: relative;
                                         @include flexbox();
-                                        margin-left: -18px;
-                                        margin-right: -18px;
+                                        flex-direction: column;
+                                        align-items: flex-start;
 
-                                        .flex_item {
-                                            width: calc(50% - 36px);
-                                            margin: 0 18px;
-                                            position: relative;
-                                            @include flexbox();
-                                            flex-direction: column;
-                                            align-items: flex-start;
+                                        &.cvv_code {
+                                            .input_text {
+                                                padding: 14px 35px 14px 16px;
+                                            }
 
-                                            &.cvv_code {
-                                                &::after {
-                                                    content: "";
-                                                    display: inline-block;
-                                                    position: absolute;
-                                                    width: 16px;
-                                                    height: 16px;
-                                                    z-index: 1;
-                                                    right: 16px;
-                                                    top: 48px;
-                                                    background-image: url('../../assets/images/info.svg');
-                                                    background-repeat: no-repeat;
-                                                }
+                                            .info_icon {
+                                                display: inline-block;
+                                                position: absolute;
+                                                width: 16px;
+                                                height: 16px;
+                                                z-index: 1;
+                                                right: 16px;
+                                                top: 48px;
+                                                background-image: url('../../assets/images/info.svg');
+                                                background-repeat: no-repeat;
+                                                cursor: pointer;
                                             }
                                         }
                                     }
                                 }
+                            }
 
-                                .action {
+                            .action {
+                                width: 100%;
+
+                                .pay_btn {
                                     width: 100%;
+                                    cursor: pointer;
+                                    height: 48px;
+                                    border-radius: 8px;
+                                    padding: 14px 16px;
+                                    @include flexbox();
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    line-height: 20px;
+                                    /* 142.857% */
+                                    letter-spacing: 0.07px;
+                                    font-family: $font-monsterat;
+                                    color: $white;
+                                    background-color: #00A9BB;
+                                    border: none;
 
-                                    .pay_btn {
-                                        width: 100%;
-                                        cursor: pointer;
-                                        height: 48px;
-                                        border-radius: 8px;
-                                        padding: 14px 16px;
-                                        @include flexbox();
-                                        align-items: center;
-                                        justify-content: center;
-                                        font-size: 14px;
-                                        font-style: normal;
-                                        font-weight: 600;
-                                        line-height: 20px;
-                                        /* 142.857% */
-                                        letter-spacing: 0.07px;
-                                        font-family: $font-monsterat;
-                                        color: $white;
-                                        background-color: #00A9BB;
-                                        border: none;
+                                    &:focus:not(:focus-visible) {
+                                        outline: none;
+                                    }
 
-                                        &:focus:not(:focus-visible) {
-                                            outline: none;
-                                        }
+                                    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+                                    -7px -7px 7px 0px #FFF;
 
-                                        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
-                                        -7px -7px 7px 0px #FFF;
+                                    &:disabled {
+                                        background-color: #ddd;
+                                        cursor: not-allowed;
+                                        color: $black;
                                     }
                                 }
                             }
+
                         }
 
+                    }
+                }
+            }
+
+            .success_page_container {
+                position: fixed;
+                background-color: $white;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                padding-top: 72px;
+                z-index: 2;
+                @include flexbox();
+                align-items: center;
+                justify-content: center;
+                box-sizing: border-box;
+
+                * {
+                    box-sizing: border-box;
+                    font-family: $font-monsterat;
+                }
+
+                .successmodal {
+                    width: 100%;
+                    padding: 24px;
+                    max-width: 475px;
+                    box-shadow: 0px 10px 70px 0px rgba(0, 0, 0, 0.08);
+                    border-radius: 12px;
+                    background-color: $white;
+
+                    .check_icon {
+                        width: 80px;
+                        height: 80px;
+                        margin: 0 auto;
+
+                        .icon {
+                            width: 100%;
+                            max-width: 100%;
+                            height: auto;
+                        }
+                    }
+
+                    .title {
+                        margin-top: 24px;
+                        margin-bottom: 12px;
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 32px;
+                        /* 133.333% */
+                        letter-spacing: 0.12px;
+                        color: $text;
+                    }
+
+                    .info {
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 20px;
+                        /* 142.857% */
+                        letter-spacing: 0.07px;
+                        color: #6B7280;
+                        margin-top: 0;
+                        margin-bottom: 24px;
+                    }
+                    .dashBtn{
+                        width: 100%;
+                        max-width: 347px;
+                        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), -1px -7px 7px 0px #FFF;
+                        background-color: #00A9BB;
+                        border-radius: 8px;
+                        color: $white;
+                        cursor: pointer;
+                        border: none;
+                        padding: 14px 16px;
+                        @include flexbox();
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 20px; /* 142.857% */
+                        letter-spacing: 0.07px;
+                        color: $white;
+                        margin: 0 auto;
+                        &:focus:not(:focus-visible){
+                            outline: none;
+                        }
                     }
                 }
             }
@@ -1602,23 +1740,28 @@ $font-monsterat : 'Montserrat';
                         }
                     }
                 }
-                &.create_account, &.email_verify, &.registration{
+
+                &.create_account,
+                &.email_verify,
+                &.registration {
                     max-width: 700px;
                 }
-                &.subscriptionPlan{
-                    .subscriptionPlanPage_wrapper{
-                        .body_container{
-                            .MuiBox-root{
-                                .tabcontent_container{
-                                    .MuiBox-root{
-                                    .planCard_flexBox{
-                                        flex-wrap: wrap;
-                                        row-gap: 20px;
-                                        .planCard_container{
-                                            width: calc(50% - 16px);
+
+                &.subscriptionPlan {
+                    .subscriptionPlanPage_wrapper {
+                        .body_container {
+                            .MuiBox-root {
+                                .tabcontent_container {
+                                    .MuiBox-root {
+                                        .planCard_flexBox {
+                                            flex-wrap: wrap;
+                                            row-gap: 20px;
+
+                                            .planCard_container {
+                                                width: calc(50% - 16px);
+                                            }
                                         }
                                     }
-                                }
                                 }
                             }
                         }
@@ -1631,16 +1774,19 @@ $font-monsterat : 'Montserrat';
 
 @media screen and (max-width:767px) {
     .signUp_wrapper {
-        .header{
+        .header {
             padding: 0 16px;
-            .right_action{
+
+            .right_action {
                 transition: all .5s ease-in-out;
-                .closeBtn{
+
+                .closeBtn {
                     display: inline-block;
                     position: absolute;
                     right: 10px;
                     top: 10px;
                 }
+
                 position: fixed;
                 // left: 100%;
                 height: 100%;
@@ -1652,23 +1798,27 @@ $font-monsterat : 'Montserrat';
                 top: 0;
                 right: -100%;
                 box-shadow: 4px 0px 4px 0px rgba(0, 0, 0, 0.25) inset;
-                &.show{
+
+                &.show {
                     right: 0;
                     left: auto;
-                    .dont_account{
+
+                    .dont_account {
                         margin: 0 0 20px 0px;
                     }
                 }
             }
-            .burgerMenuBtn{
-             
+
+            .burgerMenuBtn {
+
                 border: none;
                 background-color: transparent;
                 width: 40px;
-                height:30px;
+                height: 30px;
                 display: grid;
                 row-gap: 2px;
-                .seperator{
+
+                .seperator {
                     display: block;
                     width: 100%;
                     height: 1px;
@@ -1677,16 +1827,21 @@ $font-monsterat : 'Montserrat';
 
             }
         }
+
         .main_container {
             .content_wrapper {
 
 
-                &.create_account, &.email_verify, &.registration, &.paymentMethod {
+                &.create_account,
+                &.email_verify,
+                &.registration,
+                &.paymentMethod {
                     max-width: initial;
                     width: 90%;
                     padding: 32px 16px;
                 }
-                &.subscriptionPlan{
+
+                &.subscriptionPlan {
                     padding: 32px 16px;
                 }
             }
@@ -1717,41 +1872,51 @@ $font-monsterat : 'Montserrat';
                     .creatAccountForm_wrapper {
                         .form_container {
                             max-width: initial;
-                            .page_title{
+
+                            .page_title {
                                 font-size: 20px;
                             }
                         }
                     }
                 }
-                &.email_verify{
-                    .emailverifyPage_wrapper{
+
+                &.email_verify {
+                    .emailverifyPage_wrapper {
                         max-width: initial;
-                        .title{
+
+                        .title {
                             font-size: 20px;
                         }
-                        .body_container{
-                            .otp_verify_title{
+
+                        .body_container {
+                            .otp_verify_title {
                                 font-size: 18px;
                             }
                         }
                     }
                 }
-                &.registration{
-                    .registrationPage_wrapper{
-                        .title{
+
+                &.registration {
+                    .registrationPage_wrapper {
+                        .title {
                             font-size: 20px;
                         }
-                        .body_container{
-                            .grid_box{
+
+                        .body_container {
+                            .grid_box {
                                 flex-wrap: wrap;
-                                .input_flexBox, .select_flexBox {
+
+                                .input_flexBox,
+                                .select_flexBox {
                                     width: calc(100% - 20px);
                                 }
-                                .select_flexbox{
+
+                                .select_flexbox {
                                     flex-wrap: wrap;
                                     margin: 0 10px;
                                     width: 100%;
-                                    .dropdown{
+
+                                    .dropdown {
                                         width: calc(100% - 0px);
                                         margin: 0 0 36px 0;
                                     }
@@ -1760,34 +1925,37 @@ $font-monsterat : 'Montserrat';
                         }
                     }
                 }
-                &.subscriptionPlan{
-                    .subscriptionPlanPage_wrapper{
-                        .body_container{
-                            .MuiBox-root{
-                                .tabcontent_container{
-                                    .MuiBox-root{
-                                    .planCard_flexBox{
-                                        .planCard_container{
-                                            width: calc(100% - 16px);
+
+                &.subscriptionPlan {
+                    .subscriptionPlanPage_wrapper {
+                        .body_container {
+                            .MuiBox-root {
+                                .tabcontent_container {
+                                    .MuiBox-root {
+                                        .planCard_flexBox {
+                                            .planCard_container {
+                                                width: calc(100% - 16px);
+                                            }
                                         }
                                     }
-                                }
                                 }
                             }
                         }
                     }
                 }
-                &.paymentMethod{
-                    .paymentMethodPage_wrapper{
-                        .title{
+
+                &.paymentMethod {
+                    .paymentMethodPage_wrapper {
+                        .title {
                             font-size: 20px;
                         }
-                        .body_container{
-                            .form_container{
+
+                        .body_container {
+                            .form_container {
                                 max-width: initial;
                             }
                         }
-                      
+
                     }
                 }
             }
@@ -1818,6 +1986,16 @@ $font-monsterat : 'Montserrat';
                         }
                     }
                 }
+                .success_page_container{
+                    .successmodal{
+                        max-width: initial;
+                        width: calc(100% - 30px);
+                        .title{
+                            font-size: 20px;
+                        }
+                    }
+                
+                }
             }
         }
     }
@@ -1833,35 +2011,37 @@ $font-monsterat : 'Montserrat';
                             .text {
                                 font-size: 7px;
                             }
-                            .index{
+
+                            .index {
                                 font-size: 10px;
                             }
                         }
                     }
                 }
-                &.paymentMethod{
-                    .paymentMethodPage_wrapper{
-                        .body_container{
-                            .form_container{
-                                form{
-                                    .input_box{
-                                        &.grid_box{
-                                            flex-wrap: wrap;
-                                            width: 100%;
-                                            margin-left: 0;
-                                            margin-right: 0;
-                                            row-gap: 20px;
-                                            .flex_item{
-                                                width: calc(100% - 0px);
-                                                margin: 0;
-                                            }
+
+                &.paymentMethod {
+                    .paymentMethodPage_wrapper {
+                        .body_container {
+                            .form_container {
+                                .input_box {
+                                    &.grid_box {
+                                        flex-wrap: wrap;
+                                        width: 100%;
+                                        margin-left: 0;
+                                        margin-right: 0;
+                                        row-gap: 20px;
+
+                                        .flex_item {
+                                            width: calc(100% - 0px);
+                                            margin: 0;
                                         }
                                     }
                                 }
-                                
+
+
                             }
                         }
-                      
+
                     }
                 }
             }

@@ -6,8 +6,8 @@ const initialState = {
   data: '',
 };
 
-const IndustrylistSlices = createSlice({
-  name: 'industrylist',
+const CountryIndusrylistSlices = createSlice({
+  name: 'countryIndustrylist',
   initialState,
   reducers: {
     setData: (state, action) => {
@@ -19,5 +19,5 @@ const IndustrylistSlices = createSlice({
   },
 });
 
-export const {setData, addData } = IndustrylistSlices.actions;
-export default IndustrylistSlices.reducer;
+export const {setData, addData } = CountryIndusrylistSlices.actions;
+export default CountryIndusrylistSlices.reducer;

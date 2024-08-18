@@ -70,7 +70,10 @@ function CreatAccount(props) {
         }
         
        } 
-       setPhone(e.target.value)
+       if(Number(e.target.value)){
+        setPhone(e.target.value)
+       }
+     
       }
 
       const handleSubmit = () => {

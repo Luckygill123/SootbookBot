@@ -6,8 +6,8 @@ const initialState = {
   data: '',
 };
 
-const CountrylistSlices = createSlice({
-  name: 'countrylist',
+const LoginServiceSlices = createSlice({
+  name: 'loginService',
   initialState,
   reducers: {
     setData: (state, action) => {
@@ -19,5 +19,5 @@ const CountrylistSlices = createSlice({
   },
 });
 
-export const {setData, addData } = CountrylistSlices.actions;
-export default CountrylistSlices.reducer;
+export const {setData, addData } = LoginServiceSlices.actions;
+export default LoginServiceSlices.reducer;
