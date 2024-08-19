@@ -43,9 +43,10 @@
     "share_title": "Share",
     "submit_title" :"Submit",
     "success_otp_message" :"OTP is valid",
+    "invalid_otp" :"Invalid OTP",
     "congratulations_title" : "Congratulations!",
     "success_info" : "Thanks! If admin2000@gmail.com matches an email address we have on file, then we've sent you an email containing further instructions for resetting your password.",
     "go_dashboard" : "Go to dashboard",
-    "account_notExist" : "Account not exist"
+    "account_doesnotExist" : "Account does not exist"
 
 }

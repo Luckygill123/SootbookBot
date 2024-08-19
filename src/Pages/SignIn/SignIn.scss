@@ -41,7 +41,7 @@ $font-monsterat : 'Montserrat';
         justify-content: space-between;
         box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.03);
         position: fixed;
-        z-index: 2;
+        z-index: 99;
         left: 0;
         top: 0;
         width: 100%;
@@ -521,6 +521,18 @@ $font-monsterat : 'Montserrat';
             box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), -1px -7px 7px 0px #FFF;
             &:focus:not(:focus-visible){
                 outline: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:576px) {
+    .account_notExist_page{
+        .account_notExist_Modal{
+            max-width: initial;
+            width: calc(100% - 30px);
+            .title{
+                font-size: 20px;
             }
         }
     }

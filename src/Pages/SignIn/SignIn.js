@@ -26,6 +26,7 @@ function SignIn(props) {
     const [password, setPassword] = useState("");
     const [isValid, setIsValid] = useState(true);
     const [accountnoexist, setAccountNoExist] = useState(false);
+    const [errorModal, setErrorModal] = useState(false)
     const inputRef = useRef(null);
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -85,8 +86,11 @@ function SignIn(props) {
                 localStorage.setItem("accessToken", response.data.token)
                 dispatch(addData(response.data));
                 navigate("/dashboard")
-            }else{
+            }else if(response && response.status == false && response.message == "Vendor doesnot exist"){
                 setAccountNoExist(true)
+            }
+            else if (response && response.status == false && response.message == "Registration process has not been completed"){
+                setErrorModal(response.message)
             }
 
         })
@@ -174,13 +178,13 @@ function SignIn(props) {
             </div>
 
 {
-    accountnoexist && (
+    (accountnoexist || errorModal!==false) && (
         <div className='account_notExist_page'>
             <div className='account_notExist_Modal'>
                 <div className='icon_block'>
                     <img src={CrossImg}  alt="icon" className='cross_img'></img>
                 </div>
-                <h5 className='title'>{locales.account_notExist}</h5>
+                <h5 className='title'>{accountnoexist ? locales.account_doesnotExist : errorModal!==false ? errorModal:''}</h5>
                 <button className='signup_btn' onClick={() => navigate("/SignUp")}>{locales.signUp}</button>
             </div>
         </div>
