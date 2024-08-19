@@ -541,6 +541,8 @@ $font-monsterat : 'Montserrat';
                             border-bottom: 2px solid ;
                             border-color: rgb( 229, 231, 235);
                             .MuiTabs-flexContainer{
+                                overflow-x: auto;
+                                scrollbar-width: thin;
                                 .MuiButtonBase-root {
                                     text-transform: capitalize;
                                     min-height: 30px;
@@ -601,6 +603,7 @@ $font-monsterat : 'Montserrat';
                                     margin-right: -10px;
                                     overflow-x: auto;
                                     padding: 5px 5px 5px 5px;
+                                    scrollbar-width: thin;
                                     .tableform{
                                         width: calc(100% - 0px);
                                         position: relative;

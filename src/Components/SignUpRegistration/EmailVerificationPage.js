@@ -20,9 +20,8 @@ function EmailVerifyPage(props) {
 
         const userid = JSON.parse(localStorage.getItem('profileData')).vendor._id;
         Otpverification(userid, otp).then((response) => {
-            console.log("response--", response)
             if (response && response.statusText == "OK") {
-                if (response.status == true && response.data?.message == locales.success_otp_message) {
+                if (response?.data?.status == true && response.data?.message == locales.success_otp_message) {
                     props.continueRegistration()
                 }
                 else if (response?.data?.status == false && response?.data?.message == locales.invalid_otp) {
